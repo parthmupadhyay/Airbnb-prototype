@@ -19,11 +19,10 @@ var search = require('./routes/search');
 var review = require('./routes/review');
 var property = require('./routes/property');
 var account_management = require('./routes/account_management');
-var render=require('./routes/render');
-var listings=require('./routes/listings');
+var render = require('./routes/render');
+var listings = require('./routes/listings');
 var trips = require('./routes/trips');
-
-
+var bid = require('./routes/bid');
 
 
 var app = express();
@@ -47,7 +46,7 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb"},{extended: true}));
+app.use(bodyParser.urlencoded({limit: "50mb"}, {extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -60,8 +59,7 @@ app.get('/searchResult', search.search);
 app.get('/search', search.loadSearchPg);
 
 
-
-app.post('/uploadVideo',listings.uploadVideo);
+app.post('/uploadVideo', listings.uploadVideo);
 app.post('/editUser', account.editUser);
 app.get('/editProfilePage', render.getEditProfilePage);
 app.get('/getUserPhotoPage', render.renderProfilePhotoPage);
@@ -76,7 +74,7 @@ app.get('/payoutTransaction', account_management.payoutTransactions);
 app.post('/updatePassword', account_management.updatePassword);
 app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
-app.post('/editProperty',property.editProperty);
+app.post('/editProperty', property.editProperty);
 
 app.get('/getEditPropertyPage/:propertyId', property.getEditPropertyPage);
 
@@ -93,10 +91,10 @@ app.get('/getReservations', listings.getReservations);
 app.post('/acceptTrip', trips.acceptTrip);
 app.get('/itinerary/:tripId', trips.displayItinerary);
 app.get('/profile/*', render.userProfile);
-app.get('/getUserProfile/:userId',users.getUserProfile);
-app.get('/getUserReview/:userId',users.getUserReview);
-app.get('/getHostReview/:hostId',users.getHostReview)
-app.get('/becomeHost',render.becomeHost);
+app.get('/getUserProfile/:userId', users.getUserProfile);
+app.get('/getUserReview/:userId', users.getUserReview);
+app.get('/getHostReview/:hostId', users.getHostReview)
+app.get('/becomeHost', render.becomeHost);
 app.get('/editProperty', render.editPropertyPage);
 
 app.get('/getPaymentPage', render.paymentPage);
@@ -108,24 +106,24 @@ app.get('/receipt/:billingID', account_management.receiptPage);
 
 app.post('/itinerary', trips.loadItinerary);
 
-app.get('/addListing',render.addListing);
-app.post('/addNewListing',listings.addNewListing);
+app.get('/addListing', render.addListing);
+app.post('/addNewListing', listings.addNewListing);
 app.get('/test/*', render.test);
-app.post('/addUserReview',users.addUserReview);
-app.post('/addHostReview',users.addHostReview);
+app.post('/addUserReview', users.addUserReview);
+app.post('/addHostReview', users.addHostReview);
 
 app.get('/hostReviewsCount', review.getHostReviewsCount);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
-app.post('/uploadProfileImage',account.uploadProfileImage );
-app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
+app.post('/uploadProfileImage', account.uploadProfileImage);
+app.post('/loadProfilePhotoPage', account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
 app.get('/cardDetails', account_management.cardDetails);
 
+app.post('/updateBasePrice', bid.updateBasePrice);
 
-app.get('/getSession',function(request,response)
-    {
-       response.send(JSON.stringify(request.session));
+app.get('/getSession', function (request, response) {
+    response.send(JSON.stringify(request.session));
 });
 
 

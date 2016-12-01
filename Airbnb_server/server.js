@@ -9,8 +9,9 @@ var property_detail = require('./services/property_detail');
 var account_management = require("./services/account_management");
 var trips = require('./services/trips');
 var listings = require('./services/listings');
-var user=require('./services/user');
-var property=require('./services/property');
+var user = require('./services/user');
+var property = require('./services/property');
+var bid = require('./services/bid');
 
 
 var cnn = amqp.createConnection({host: '127.0.0.1'});
@@ -552,7 +553,7 @@ cnn.on('ready', function () {
         });
     });
 
-cnn.queue('checkHost_queue', function (q) {
+    cnn.queue('checkHost_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));
             // util.log("Message: " + JSON.stringify(message));
@@ -567,7 +568,7 @@ cnn.queue('checkHost_queue', function (q) {
             });
         });
     });
-    
+
     cnn.queue('cardDetail_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));
@@ -583,4 +584,18 @@ cnn.queue('checkHost_queue', function (q) {
             });
         });
     });
+
+
+    cnn.queue('updateBasePrice_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            bid.updateBasePrice(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
     });
+});

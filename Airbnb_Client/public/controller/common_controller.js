@@ -1996,13 +1996,13 @@ $scope.loadPhotos=function()
     console.log($scope.photosList);
    $scope.photoP=false;
 
-}
+};
 
 $scope.loadVideo=function()
 {
     console.log($scope.video);
     $scope.videoDisp=false;
-}
+};
     $scope.selectBasicsDiv=function() {
         $scope.basicsDiv=false;
         $scope.locationDiv=true;
@@ -2094,7 +2094,7 @@ $scope.loadVideo=function()
                 $window.location.assign("yourListings");
             }
         });
-    }
+    };
 
     /*Video upload*/
     $scope.submit = function() {
