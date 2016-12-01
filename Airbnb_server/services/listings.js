@@ -77,6 +77,7 @@ exports.addNewListing=function(msg,callback)
     newListing.isApproved=msg.isApproved;
     newListing.isBidding=msg.isBidding;
     newListing.isAvailable=true;
+    newListing.revenue=0;
     console.log("Media::"+msg.media);
     if(msg.isBidding) {
         newListing.biddingDueTime = msg.createdDate / 1000 + (4 * 60);
@@ -186,8 +187,4 @@ exports.getReservations = function(msg, callback){
 
 };
 
-function getMediaId(imageList)
-{
 
-
-}

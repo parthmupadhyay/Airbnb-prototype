@@ -10,7 +10,12 @@ exports.accountPage = function (req, res, next) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+	 "userSSN": req.sess.userSSN,
+        "lastName": req.sess.lastName,
+        "userId": req.sess.userId,
+        "isHost": req.sess.isHost,
+	"profileImage": req.sess.profileImage
     };
     res.render('Account_Transactions', user_data);
 };
@@ -19,12 +24,29 @@ exports.accountSecurityPage = function (req, res, next) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+	 "userSSN": req.session.userSSN,
+        "lastName": req.session.lastName,
+        "userId": req.session.userId,
+        "isHost": req.session.isHost,
+	"profileImage": req.session.profileImage
     };
     res.render('Account_Security', user_data);
 };
 
-
+exports.accountPaymentMethodPage = function (req, res, next) {
+    var user_data = {
+        "email": req.session.email,
+        "isLoggedIn": req.session.isLoggedIn,
+        "firstname": req.session.firstName,
+        "userSSN": req.session.userSSN,
+        "lastName": req.session.lastName,
+        "userId": req.session.userId,
+        "isHost": req.session.isHost,
+	"profileImage": req.session.profileImage
+    };
+    res.render('Account_Payment_Method', user_data);
+};
 
 exports.updatePassword = function (req, res, next) {
     console.log("in routes account_management");
@@ -112,6 +134,48 @@ exports.payoutTransactions = function (req, res, next) {
             res.send(err);
         } else {
             console.log("payoutTransactions_queue queue");
+            res.send(user.data);
+        }
+    });
+};
+exports.receiptPage = function (req, res, next) {
+    var billingID = req.params.billingID;
+    var msg_payload = {
+        bID: billingID
+    };
+    mq_client.make_request('receiptPage_queue', msg_payload, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log("receiptPage response");
+            var user_data = {
+                "email": req.session.email,
+                "isLoggedIn": req.session.isLoggedIn,
+                "firstname": req.session.firstName,
+                "data": user.data,
+                "userSSN": req.session.userSSN,
+                "lastName": req.session.lastName,
+                "userId": req.session.userId,
+                "isHost": req.session.isHost,
+                "profileImage": req.session.profileImage
+            };
+            console.log(user_data);
+            res.render('receipt', user_data);
+        }
+    });
+};
+exports.cardDetails = function (req, res, next) {
+    var msg_payload = {
+        uid: req.session.email
+    };
+    mq_client.make_request('cardDetail_queue', msg_payload, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log("card Details");
+            console.log(user);
             res.send(user.data);
         }
     });

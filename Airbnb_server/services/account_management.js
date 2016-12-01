@@ -1,6 +1,4 @@
-/**
- * Created by shalin on 11/21/2016.
- */
+
 var bcrypt = require('bcryptjs');
 /*var fecha = require('fecha');*/
 /*var mongo = require("./mongo");
@@ -55,7 +53,8 @@ exports.updatePassword = function (msg, callback) {
 exports.updatePaymentMethod = function (msg, callback) {
     var cvv = msg.cvv;
     var cnos = Number(msg.cno);
-    var edate = Number(msg.expm + msg.expy);
+    var edate = msg.expm +"/"+ msg.expy;
+    console.log(msg.expm+"  "+msg.expy);
     var username = msg.email;
     console.log(username);
     console.log(cvv, cnos, edate);
@@ -122,5 +121,45 @@ exports.payoutTransactions = function (msg, callback) {
             callback(null, res);
         }
 
+    });
+};
+exports.receiptPage = function (msg, callback) {
+    console.log("receiptPage service");
+    Billing.find({_id: new ObjectId(msg.bID)}).populate('propertyId').populate('hostId').populate('userId').populate('tripID').exec(function (err, result) {
+        if (err) {
+            console.log("err in billing receipt");
+            callback(err, null);
+        }
+        if (!result) {
+            callback(null, null);
+        }
+        if (result) {
+            var res = {};
+            console.log(result);
+            console.log("receipt result");
+            res.code = 200;
+            res.data = result;
+            callback(null, res);
+        }
+    });
+};
+exports.cardDetails = function (msg, callback) {
+    console.log("cardDetails service");
+    User.find({email: msg.uid}).cache(300).exec(function (err, result) {
+        if (err) {
+            console.log("err in update");
+            callback(err, null);
+        }
+        if (!result) {
+            callback(null, null);
+        }
+        if (result) {
+            var res = {};
+            console.log("cardDetails queue");
+            res.code = 200;
+            res.data = result;
+            console.log(result);
+            callback(null, res);
+        }
     });
 };

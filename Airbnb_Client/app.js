@@ -99,6 +99,15 @@ app.get('/getHostReview/:hostId',users.getHostReview)
 app.get('/becomeHost',render.becomeHost);
 app.get('/editProperty', render.editPropertyPage);
 
+app.get('/getPaymentPage', render.paymentPage);
+app.post('/loadPaymentPage', account.loadPaymentPage);
+app.post('/getPropertyDetails', account.getPropertyDetails);
+app.post('/confirmBooking', account.confirmBooking);
+
+app.get('/receipt/:billingID', account_management.receiptPage);
+
+app.post('/itinerary', trips.loadItinerary);
+
 app.get('/addListing',render.addListing);
 app.post('/addNewListing',listings.addNewListing);
 app.get('/test/*', render.test);
@@ -111,6 +120,7 @@ app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
+app.get('/cardDetails', account_management.cardDetails);
 
 
 app.get('/getSession',function(request,response)

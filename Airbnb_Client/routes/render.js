@@ -128,3 +128,8 @@ exports.accountPaymentMethodPage = function (req, res, next) {
 
     res.render('Account_Payment_Method', getUserData(req));
 };
+
+exports.paymentPage = function (req, res, next) {
+
+    res.render('paymentpage', getUserData(req));
+};

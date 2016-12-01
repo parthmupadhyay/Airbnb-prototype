@@ -22,9 +22,11 @@ exports.getUserTrips = function (msg, callback) {
             if (err) {
                 console.log(err);
                 callback(err, null);
+            } else {
+                for (var i = 0; i < trips.length; i++) {
+                    trips[i].checkIn = new Date(trips[i].checkIn).toLocaleDateString();
+                    trips[i].checkOut = new Date(trips[i].checkOut).toLocaleDateString();
             }
-            else {
-                console.log(trips);
                 callback(null, trips);
             }
         });
@@ -44,25 +46,22 @@ exports.acceptTrip = function (msg, callback) {
         .exec(function (err, doc) {
 
             if (!err) {
-
-                // console.log(doc);
-
                 var days = doc.checkOut - doc.checkIn;
                 var total;
                 days = Math.floor(days / (1000 * 60 * 60 * 24));
                 if (days < 1) {
                     days = 1;
                     total = 1 * doc.propertyId.price;
-                }
-                else
+                } else {
                     total = days * doc.propertyId.price;
-
+                }
                 var bill = new Billing();
                 bill.propertyId = doc.propertyId;
                 bill.hostId = doc.hostId;
                 bill.tripId = doc._id;
                 bill.userId = doc.userId;
                 bill.date = Date.now();
+                console.log(doc.checkOut);
                 bill.fromDate = doc.checkIn;
                 bill.toDate = doc.checkOut;
                 bill.total = total;
@@ -70,14 +69,9 @@ exports.acceptTrip = function (msg, callback) {
                 bill.createdDate = Date.now();
                 bill.billingId = ssn.generate();
                 bill.save(function (err) {
-
                     if (!err) {
                         res.code = 200;
-
                         var revenue = total;
-                        console.log("*******************************");
-                        //
-
                         Property.findOne({_id: doc.propertyId._id}, function (err, forRevenue) {
                             if (!err) {
                                 // console.log(forRevenue);
@@ -93,15 +87,8 @@ exports.acceptTrip = function (msg, callback) {
 
                                     });
                                 });
-
-
                             }
-
-                            else
-                                console.log(err);
                         });
-
-
                     } else if (err.code == 11000) {
                         res.code = 400;
                         console.log("Duplicate");
@@ -110,19 +97,13 @@ exports.acceptTrip = function (msg, callback) {
                         console.log(err);
                     }
                     callback(null, res);
-
                 });
-
-
             } else {
                 res.code = 500;
                 callback(err, null);
             }
         });
-
-
 };
-
 exports.getItinerary = function (msg, callback) {
 
 
@@ -133,7 +114,6 @@ exports.getItinerary = function (msg, callback) {
     itinerary.trip = [];
     itinerary.bill = [];
 
-    console.log(tripId, userId);
 
     Trip.findOne({tripId: tripId, userId: userId})
         .populate('propertyId')
@@ -141,7 +121,6 @@ exports.getItinerary = function (msg, callback) {
         .populate('hostId')
         .exec(function (err, trip) {
 
-            console.log(trip);
             itinerary.trip.push(trip);
 
             if (!err && trip != null) {
@@ -150,7 +129,6 @@ exports.getItinerary = function (msg, callback) {
                 Billing.findOne({tripId: trip._id})
                     .exec(function (err, bill) {
                         if (!err) {
-                            console.log(bill);
                             itinerary.bill.push(bill);
                             callback(null, itinerary);
                         } else {

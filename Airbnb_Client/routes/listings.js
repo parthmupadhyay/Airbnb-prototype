@@ -120,6 +120,7 @@ exports.addNewListing=function (request,response)
         "roomType":request.param("roomType"),
         "city":request.param("city"),
         "state":request.param("state"),
+        "country":request.param("country"),
         "address":request.param("address"),
         "zipCode":request.param("zipCode"),
         "bedrooms":request.param("bedrooms"),

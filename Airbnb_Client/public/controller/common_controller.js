@@ -1,9 +1,15 @@
-/**
- * Created by vicky on 11/20/2016.
- */
-/**
- * http://usejsdoc.org/
- */
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
 var app = angular.module('App',['ngFileUpload']);
 app.controller('authentication_controller', function ($scope, $window, $location, $http) {
 
@@ -93,6 +99,21 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 
     //payment code
     $scope.alert2 = false;
+    $scope.paymentInit = function () {
+        $http({
+            method: "GET",
+            url: "/cardDetails",
+        }).success(function (result) {
+            $scope.cname = result[0].firstName +" "+ result[0].lastName;
+            $scope.cnum = result[0].cardNumber;
+            $scope.ccv = result[0].cvv;
+            var x = result[0].expDate.split("/");
+            $scope.expMonth = x[0];
+            $scope.expiryYear = x[1];
+        }).error(function (err) {
+            console.log(err);
+        });
+    };
     $scope.creditCard = function () {
         console.log($scope.ccv, $scope.cnum, $scope.expMonth, $scope.expYear);
         $http({
@@ -385,30 +406,6 @@ app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$wi
 
 }]);
 
-/*
-app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
-
-
-    var current_url = (window.location.href).replace('/search', '/searchResult');
-    $http.get(current_url).then(function(response) {
-        // $scope.room_result = response;
-        $('.search-results').removeClass('loading');
-        no_results();
-        $scope.room_result = response.data;
-        $scope.totalPages   = response.data.last_page;
-        $scope.currentPage  = response.data.current_page;
-
-        // marker(response.data);
-    });
-
-    function no_results() {
-        if($('.search-results').hasClass('loading'))
-            $('#no_results').hide();
-        else
-            $('#no_results').show();
-    }
-}]);
-*/
 
 app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
 
@@ -539,7 +536,14 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
                 labelAnchor: new google.maps.Point(18, 65),
                 labelClass: "labels", // the CSS class for the label
                 labelInBackground: false,
-                icon: pinSymbol("red")
+                icon: {
+                    path: SQUARE_PIN,
+                    fillColor: '#00CCBB',
+                    fillOpacity: 1,
+                    strokeColor: '',
+                    strokeWeight: 0
+                },
+                map_icon_label: '<span class="map-icon map-icon-city-hall"></span>'
             });
 
            /* var marker = new google.maps.Marker({
@@ -1614,6 +1618,9 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 app.controller('room_details_controller', function ($scope, $window, $location, $http) {
     var room_id = getParameterByName('propertyId');
+    $scope.checkin = getParameterByName("checkin");
+    $scope.checkout = getParameterByName("checkout");
+    $scope.guests = getParameterByName("guests");
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
@@ -1623,15 +1630,200 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         });
     });
 
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    $scope.book = function () {
+        var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
+        var change_url = "/getPaymentPage?";
+        change_url += "propertyId=" + $scope.room_result.id + "&";
+        change_url += "checkin=" + $scope.checkin + "&";
+        change_url += "checkout=" + $scope.checkout + "&";
+        change_url += "guests=" + $scope.guests + "&";
+        change_url += "nights=" + days;
+        window.location.href = change_url;
+    };
+
+    function daydiff(first, second) {
+        return Math.round((second - first) / (1000 * 60 * 60 * 24));
     }
+
+    $(document).on('click', '.rooms-slider', function () {
+        var rooms_id = $(this).attr("data-room_id");
+        var img_url = $("#rooms_image_" + rooms_id).attr("src").substr(29);
+
+        console.log( $scope.room_result);
+
+        var images = $scope.room_result.images;
+        if ($(this).is(".target-prev") == true) {
+            var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+        } else {
+            var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+    }
+    });
 });
 
+app.controller('payment_controller', function ($scope, $window, $location, $http) {
 
+    var propertyId = getParameterByName("propertyId");
+    var guest = getParameterByName("guests");
+    var checkin = getParameterByName("checkin");
+    var checkout = getParameterByName("checkout");
+    var totalperday;
+    var days = getParameterByName("nights");
+
+    $scope.loadPaymentPage = function () {
+        $http.post('/loadPaymentPage')
+            .success(function (data) {
+                if (data.statusCode == 200) {
+                    console.log("USER");
+                    console.log(data.data);
+                    var user = data.data;
+                    $scope.cardNumber = user.cardNumber;
+                    $scope.cvv = user.cvv;
+                    $scope.firstName = user.firstName;
+                    $scope.lastName = user.lastName;
+                    $scope.zip = user.zip;
+                    var ccDate = user.expDate.split("/");
+                    $scope.expMonth = ccDate[0];
+                    $scope.expYear = ccDate[1];
+
+                } else {
+                    console.log("Error occured to get data");
+                }
+            })
+            .error(function (data) {
+                console.log("Error to get data");
+                console.log(data);
+            });
+
+        $http({
+            method: "POST",
+            url: '/getPropertyDetails',
+            data: {
+                "propertyId": propertyId
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+
+                console.log("PROPPERTY");
+                console.log(data.data);
+                var property = data.data;
+                totalperday = property.price;
+                $scope.hostId = property.hostId._id;
+                $scope.propertName = property.name;
+                $scope.location = property.city + ", " + property.state + ", " + property.country;
+                $scope.guest = guest;
+                $scope.checkin = checkin;
+                $scope.checkout = checkout;
+                $scope.totalperday = totalperday;
+                $scope.days = days;
+            } else {
+                console.log("Error occured to get property data");
+            }
+        }).error(function (error) {
+            console.log(error);
+        });
+    };
+
+    $scope.confirmBooking = function () {
+
+
+        $scope.card_wrong = false;
+        $scope.dates_wrong = false;
+        $scope.cvv_wrong = false;
+
+        var cardnumber = $scope.cardNumber;
+        var expMonth = $scope.expMonth;
+        var expYear = $scope.expYear;
+        var cvv = $scope.cvv;
+        var guest1 = guest;
+        var checkin1 = checkin;
+        var checkout1 = checkout;
+        var properyId1 = propertyId;
+        var price = totalperday;
+        var days1 = days;
+        var hostId = $scope.hostId;
+
+        var date = new Date();
+        var currMonth = date.getMonth();
+        var currYear = date.getFullYear();
+        var check = false;
+
+
+        if (expYear > currYear) {
+            check = true;
+        }
+        else if (expYear == currYear) {
+            if (expMonth >= currMonth)
+                check = true;
+            else
+                $scope.dates_wrong = true;
+
+        }
+        else {
+            $scope.dates_wrong = true;
+
+        }
+
+        if (!validateCardNumber(cardnumber)) {
+            $scope.card_wrong = true;
+        }
+
+        if (!validateCCV(cvv)) {
+            $scope.cvv_wrong = true;
+        }
+
+        if (check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
+            console.log("aLL CHECKED" + check);
+
+            $http({
+                method: "POST",
+                url: '/confirmBooking',
+                data: {
+                    "propertyId": properyId1,
+                    "cardNumber": cardnumber,
+                    "expMonth": expMonth,
+                    "expYear": expYear,
+                    "cvv": cvv,
+                    "guest": guest1,
+                    "checkin": checkin1,
+                    "checkout": checkout1,
+                    "price": price,
+                    "days": days1,
+                    "hostId": hostId
+                }
+            }).success(function (data) {
+                if (data.statusCode == 200) {
+
+                    console.log("SAVED TRIP");
+                    console.log(data.data);
+
+
+                } else {
+                    console.log("Error occured to booking");
+                }
+            }).error(function (error) {
+                console.log(error);
+            });
+        }
+    };
+
+    function validateCardNumber(number) {
+        var regex = new RegExp("^[0-9]{16}$");
+        if (!regex.test(number))
+            return false;
+        return true;
+    }
+
+    function validateCCV(number) {
+        var regex = new RegExp("^[0-9]{3}$");
+        if (!regex.test(number))
+            return false;
+        return true;
+    }
+});
 app.controller('editProperty_controller', function($scope, $http,$window) {
 
     console.log("in edit property controller");
@@ -2101,14 +2293,17 @@ app.controller('addProperty_controller', function($scope, $http,Data,$window){
 
 app.controller('itinerary_controller', function($scope, $http, $window){
 
-    console.log('hi');
-
-    $scope.init = function(stringifiedArray) {
-        var info = JSON.parse(stringifiedArray);
-        $scope.trips = info.trip;
-        $scope.bills = info.bill;
-
-    };
+    var tripId = getParameterByName("tripId");
+    $http.post('/itinerary', {tripId: tripId})
+        .success(function (data) {
+            console.log(data);
+            var info = data.data;
+            $scope.trips = info.trip;
+            $scope.bills = info.bill;
+        })
+        .error(function (data) {
+            console.log(data);
+        });
 
 
 });

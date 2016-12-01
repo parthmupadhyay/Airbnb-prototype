@@ -83,3 +83,22 @@ exports.displayItinerary = function(request, response){
 
 
 };
+
+exports.loadItinerary = function (request, response) {
+    var tripId = request.body.tripId;
+    var userId = request.session.userId;
+    var msg_payload = {tripId: tripId, userId: userId};
+
+    mq_client.make_request('getItinerary_queue', msg_payload, function (err, trips) {
+        if (!err) {
+            if (trips) {
+                response.end(trips);
+            } else {
+                response.end();
+            }
+        } else {
+            response.status(400);
+            response.end();
+        }
+    });
+};
