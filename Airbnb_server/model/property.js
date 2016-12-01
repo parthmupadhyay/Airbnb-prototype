@@ -30,7 +30,7 @@ var propertySchema = new Schema({
     createdDate: {type: Number},
     revenue: {type: Number}
 });
-propertySchema.index({address:'text',city:'text',state:'text',country:'text',zip:'text'});
+propertySchema.index({city:'text', state:'text'});
 var Property = mongoose.model('Property', propertySchema);
 
 module.exports = Property;

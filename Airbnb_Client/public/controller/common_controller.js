@@ -10,7 +10,9 @@ function toDate(dateStr) {
     var parts = dateStr.split("-");
     return new Date(parts[2], parts[1] - 1, parts[0]);
 }
+
 var app = angular.module('App',['ngFileUpload']);
+
 app.controller('authentication_controller', function ($scope, $window, $location, $http) {
 
     $scope.checkLogin = function () {
@@ -722,11 +724,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var images = room.images;
         if($(this).is(".target-prev") == true){
             var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
-            set_img_url = APP_URL + "/images/" + set_img_url;
+            set_img_url = APP_URL + "/images/users/" + set_img_url;
             $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }else{
             var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
-            set_img_url = APP_URL + "/images/" + set_img_url;
+            set_img_url = APP_URL + "/images/users/" + set_img_url;
             $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }
 
@@ -1824,6 +1826,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         return true;
     }
 });
+
 app.controller('editProperty_controller', function($scope, $http,$window) {
 
     console.log("in edit property controller");
@@ -2125,6 +2128,7 @@ $scope.loadVideo=function()
 
 
 });
+
 app.controller('addProperty_controller', function($scope, $http,Data,$window){
 
 
@@ -2491,13 +2495,14 @@ app.controller('activeListings_controller', function($scope, $http, $window){
             console.log('No Review');
             return;
         }
-
+        var reviewid = userId;
+        console.log(reviewid);
         console.log(rating);
         console.log(review, userId);
         $http({
             method: 'POST',
             url: '/addUserReview',
-            data: {"hostId": userId, "review":review, "rating": rating, "image": image}
+            data: {"userId": reviewid, "review":review, "rating": rating, "image": image}
         })
             .success(function(data){
                 console.log(data);

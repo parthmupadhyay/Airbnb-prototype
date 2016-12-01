@@ -3,6 +3,8 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
+var path = require('path');
+var imageFolder = path.join(__dirname, '../public/images/user/');
 
 exports.editUser = function (req, res) {
 
@@ -173,7 +175,7 @@ exports.uploadProfileImage = function (req, res) {
     var file;
 
     if (!req.files) {
-        var json = {"statusCode": 400}
+        var json = {"statusCode": 400};
         res.send(json);
 
     }
@@ -182,9 +184,10 @@ exports.uploadProfileImage = function (req, res) {
         file = req.files.profile_pic;
         console.log("File detais");
         console.log(file);
-        file.mv('public/images/user/' + fileName, function (err) {
+
+        file.mv(imageFolder + fileName, function (err) {
             if (err) {
-                console.log("Error in uploading")
+                console.log("Error in uploading");
                 console.log(err);
                 res.status(500).send(err);
             }

@@ -6,22 +6,18 @@ var UserReview=require('../model/userReview');
 var HostReview=require('../model/hostReview');
 var mongoose = require('mongoose');
 
-exports.getUserProfile=function(msg,callback)
-{
-    User.findOne({userId: msg.userId},function (err,result)
-    {
-        if(err)
-        {
+exports.getUserProfile=function(msg,callback) {
+    User.findOne({userId: msg.userId}, function (err, result) {
+        if (err) {
             console.log(err);
-            callback(err,null);
+            callback(err, null);
         }
-        else
-        {
+        else {
             console.log(result);
-            callback(null,result);
+            callback(null, result);
         }
     });
-}
+};
 
 
 exports.getUserReview=function(msg,callback)
@@ -80,7 +76,7 @@ exports.addUserReview=function(msg,callback)
            callback(null,result);
        }
     });
-}
+};
 
 
 exports.addHostReview=function(msg,callback)
@@ -109,7 +105,7 @@ exports.addHostReview=function(msg,callback)
 
 exports.updateUsertoHost=function(msg,callback)
 {
-    console.log("updateUsertoHost!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    console.log("updateUsertoHost!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     User.findByIdAndUpdate(msg.userId, { isHost: true }, function(err, user) {
         if (err)
             callback(err,null);
