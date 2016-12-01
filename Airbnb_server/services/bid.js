@@ -56,6 +56,7 @@ exports.updateBasePrice = function (msg, callback) {
 exports.bidCron = function (msg, callback) {
 
     "use strict";
+    console.log("Bid Cron");
     var res = {};
     var currentTime = Date.now();
     Property.find({
@@ -70,24 +71,56 @@ exports.bidCron = function (msg, callback) {
         else {
             for (let i = 0; i < result1.length; i++) {
                 Property
-                    .find({_id: new ObjectId(result1[0]._id)})
+                    .find({_id: new ObjectId(result1[i]._id)})
                     .populate('latestBidder')
                     .exec(function (err, result2) {
                         if (err) {
                             console.log(err);
                         }
                         else {
+                            console.log(result2);
                             var trip = new Trip();
                             trip.tripId = ssn.generate();
                             trip.propertyId = result2[0]._id;
-                            trip.hostId = result2[0].latestBidder._id;
-                            trip.userId = result2[0].latestBidder;
+                            trip.userId = result2[0].latestBidder._id;
+                            trip.hostId = result2[0].hostId;
+                            trip.checkIn = result2[0].startDate;
+                            trip.checkOut = result2[0].endDate;
+                            trip.noOfGuests = result2[0].maxGuest;
+                            trip.isAccepted = false;
+                            trip.createdDate = currentTime;
+                            trip.save(function (err) {
+
+                                if (err) {
+                                    console.log(err);
+                                }
+                                else {
+
+                                    var conditions = {_id: new ObjectId(result2[0]._id)};
+                                    var update = {
+                                        'isBidCompleted': true,
+
+
+                                    };
+                                    Property.update(conditions, update, function (err, result3) {
+
+                                        if (err) {
+                                            throw err;
+                                        } else {
+                                            console.log("Flag Updated");
+                                        }
+                                    });
+                                }
+
+                            });
 
                         }
 
                     });
 
             }
+            res.code=200;
+            callback(null,res);
         }
     });
 

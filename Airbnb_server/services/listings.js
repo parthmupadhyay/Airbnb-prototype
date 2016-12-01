@@ -138,7 +138,7 @@ exports.addNewListing=function(msg,callback)
         });
     }
 
-}
+};
 
 
 
