@@ -1000,9 +1000,7 @@
                                             <div class="summary">
                                                 <p>
                                                     {{ rooms.summary }}
-                                                    <a href="http://makent.trioangle.com/s/{{ location }}?checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}"
-                                                       id="tooltip-sticky-{{ rooms.id }}" class="learn-more">Learn
-                                                        More</a>
+
                                                 </p>
 
                                             </div>
@@ -1012,7 +1010,7 @@
                                         <a href="/property?propertyId={{rooms.id}}" target="listing_{{ rooms.id }}"
                                            class="media-photo media-cover">
                                             <div class="listing-img-container media-cover text-center">
-                                                <img id="rooms_image_{{ rooms.id}}"  src="http://localhost:3000/images/{{ rooms.photo_name }}" class="img-responsive-height" alt="{{ rooms.name }}">
+                                                <img id="rooms_image_{{ rooms.id}}"  src="/images/user/{{rooms.images[0]}}" class="img-responsive-height" alt="{{ rooms.name }}">
                                             </div>
                                         </a>
 

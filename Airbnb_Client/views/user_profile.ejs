@@ -123,6 +123,21 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <li class="row row-condensed" ng-show="user.isHost">
+                                <hr>
+                                <div class="media">
+                                    <i class="icon icon-ok icon-lima h3 pull-left"></i>
+                                    <div class="media-body">
+                                        <div>
+                                            Properties
+                                        </div>
+                                        <div class="text-muted">
+                                            Verified
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                         <!-- <a href="http://makent.trioangle.com/users/edit_verification">
                           Add Verifications
@@ -158,10 +173,10 @@
                 </div>
                 <div class="row-space-6 row-space-top-6 row row-condensed">
                 </div>
-                <div class="social_connections_and_reviews">
+                <div class="social_connections_and_reviews" ng-show="user.isHost">
                     <div class="row-space-6 hide-sm">
                         <h2 class="row-space-3">
-                            Listed Properties
+                            {{user.firstName}}'s Listed Properties
                             <small>({{numberOfProperties}})</small>
                         </h2>
                         <div class="row">
@@ -187,6 +202,15 @@
                         </div>
                         <div class="row-space-top-2">
                         </div>
+                    </div>
+                </div>
+
+                <div class="social_connections_and_reviews" ng-show="!user.isHost">
+                    <div class="row-space-6 hide-sm">
+                        <h2 class="row-space-3">
+                            {{user.firstName}} hasn't listed any properties yet.
+
+                        </h2>
                     </div>
                 </div>
 

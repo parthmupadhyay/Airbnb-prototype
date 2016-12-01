@@ -12,11 +12,34 @@ exports.doSearch = function (msg, callback) {
     var user_id = msg.user_id;
     var location = msg.location;
     var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
-    var checkin = toDate(msg.checkin);
-    var checkout = toDate(msg.checkout);
-    var checkinmillis = checkin.getTime();
-    var checkoutmillis = checkout.getTime();
-    var guests = msg.guests;
+
+    var checkin;
+    var checkout;
+    var checkinmillis;
+    var checkoutmillis;
+
+    if(msg.checkin === undefined){
+
+        checkin = Date.now();
+        checkinmillis = checkin;
+    } else {
+        checkin = toDate(msg.checkin);
+        checkinmillis = checkin.getTime();
+    }
+    if(msg.checkout == undefined){
+        checkout = Date.now() + 86400000;
+        checkoutmillis = checkout;
+    } else {
+        checkout = toDate(msg.checkout);
+        checkoutmillis = checkout.getTime();
+    }
+
+    // var checkin = toDate(msg.checkin);
+    // var checkout = toDate(msg.checkout);
+    // var checkinmillis = checkin.getTime();
+    // var checkoutmillis = checkout.getTime();
+
+    var guests = msg.guests === undefined ? 1 : msg.guests;
     var propertiesIds = [];
     var propertiesIdsWithoutTrip = [];
     var response = {

@@ -724,11 +724,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var images = room.images;
         if($(this).is(".target-prev") == true){
             var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
-            set_img_url = APP_URL + "/images/" + set_img_url;
+            set_img_url = APP_URL + "/images/users/" + set_img_url;
             $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }else{
             var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
-            set_img_url = APP_URL + "/images/" + set_img_url;
+            set_img_url = APP_URL + "/images/users/" + set_img_url;
             $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }
 
