@@ -598,4 +598,17 @@ cnn.on('ready', function () {
             });
         });
     });
+
+    cnn.queue('bidCron_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            bid.bidCron(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
 });

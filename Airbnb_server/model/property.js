@@ -22,7 +22,7 @@ var propertySchema = new Schema({
     biddingDueTime: {type: Number},
     isBidding: {type: Boolean},
     isBidCompleted: {type: Boolean},
-    latestBidder: {type: String},
+    latestBidder: {type: Schema.Types.ObjectId, ref: 'User'},
     isApproved: {type: Boolean},
     isAvailable: {type: Boolean},
     latitude: {type: String},

@@ -8,7 +8,6 @@ var passport = require('passport');
 var session = require('express-session');
 var mongoStore = require("connect-mongo")(session);
 var mongo = require("mongodb").MongoClient;
-
 var fileUpload = require('express-fileupload');
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,6 +22,7 @@ var render = require('./routes/render');
 var listings = require('./routes/listings');
 var trips = require('./routes/trips');
 var bid = require('./routes/bid');
+var cronBid = require('./routes/cronBid');
 
 
 var app = express();

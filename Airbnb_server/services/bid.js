@@ -1,6 +1,8 @@
 var Property = require('../model/property');
 var Bidding = require('../model/bidding');
+var Trip = require('../model/trip');
 var mongoose = require('mongoose');
+var ssn = require('ssn');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 
@@ -49,4 +51,44 @@ exports.updateBasePrice = function (msg, callback) {
         }
 
     });
+};
+
+exports.bidCron = function (msg, callback) {
+
+    "use strict";
+    var res = {};
+    var currentTime = Date.now();
+    Property.find({
+        biddingDueTime: {$lte: currentTime},
+        isBidding: true,
+        isBidCompleted: false
+    }, function (err, result1) {
+
+        if (err) {
+            throw err;
+        }
+        else {
+            for (let i = 0; i < result1.length; i++) {
+                Property
+                    .find({_id: new ObjectId(result1[0]._id)})
+                    .populate('latestBidder')
+                    .exec(function (err, result2) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            var trip = new Trip();
+                            trip.tripId = ssn.generate();
+                            trip.propertyId = result2[0]._id;
+                            trip.hostId = result2[0].latestBidder._id;
+                            trip.userId = result2[0].latestBidder;
+
+                        }
+
+                    });
+
+            }
+        }
+    });
+
 };
