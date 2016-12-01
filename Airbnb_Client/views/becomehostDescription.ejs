@@ -267,33 +267,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item nav-calendar pre-listed" id="remove-manage" data-track="calendar" ng-class="(step == 'calendar') ? 'nav-active' : ''">
-                            <a href="#" ng-click="selectCalendarDiv();" id="href_calendar">
-                                <div class="row nav-item">
-                                    <div class="col-sm-12 va-container">
-                                        <span class="va-middle">Calendar</span>
-
-                                        <div class="instant-book-status pull-right">
-                                            <div class="instant-book-status__on hide">
-                                                <i class="icon icon-bolt icon-beach h3"></i>
-                                            </div>
-                                            <div class="instant-book-status__off hide">
-                                                <i class="icon icon-bolt icon-light-gray h3"></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="js-new-section-icon not-post-listed pull-right transition hide">
-                                            <i class="nav-icon icon icon-add icon-grey"></i>
-                                        </div>
-
-                                        <div class="pull-right">
-                                            <i class="nav-icon icon icon-ok-alt icon-babu not-post-listed "></i>
-                                            <i class="dot dot-success hide"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
 
                     </ul>
 
@@ -842,7 +815,8 @@
                                     </div>
                                 </div>
                 </div></div>
-                </div></div>
+                </div>
+            </div>
             <!--Photos Div-->
             <div ng-hide="photosDiv" id="ajax_container" class="col-lg-10 col-md-9 mar-left-cont">
                 <div id="js-manage-listing-content-container" class="manage-listing-content-container">
@@ -1007,9 +981,13 @@
                                         <div class="col-4">
                                             <label class="label-large">Listing for bid</label>
 
-                                            <input type="checkbox" ng-model="bidding">
+                                            <input type="checkbox" ng-model="bidding" ng-change="biddingChange();">
                                                     <!--<select id="price-select-currency_code" data-saving="base_price" name="currency_code"><option value="USD" selected="selected">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="SGD">SGD</option><option value="SEK">SEK</option><option value="DKK">DKK</option><option value="MXN">MXN</option><option value="BRL">BRL</option><option value="MYR">MYR</option><option value="PHP">PHP</option><option value="CHF">CHF</option><option value="INR">INR</option><option value="ARS">ARS</option><option value="CAD">CAD</option><option value="CNY">CNY</option><option value="CZK">CZK</option><option value="HKD">HKD</option><option value="HUF">HUF</option><option value="IDR">IDR</option><option value="ILS">ILS</option><option value="JPY">JPY</option><option value="KRW">KRW</option><option value="NOK">NOK</option><option value="NZD">NZD</option><option value="PLN">PLN</option><option value="RUB">RUB</option><option value="THB">THB</option><option value="TRY">TRY</option><option value="TWD">TWD</option><option value="VND">VND</option><option value="ZAR">ZAR</option></select>-->
-
+                                            <div ng-hide="biddingDiv">
+                                            <label class="label-small">StartDate</label>
+                                            <input type="text" ng-model="startDate">
+                                            <label class="label-small">EndDate</label>
+                                            <input type="text" ng-model="endDate">
                                             </div>
                                         </div>
                                     </div>
@@ -1100,12 +1078,11 @@
 
 
                                     </div>
-                                    <div class="col-10 text-right next_step">
+                                    <div class="col-10 text-right">
 
-                                        <a data-prevent-default="" ng-click="selectCalendarDiv();" href="#" class="btn btn-large btn-primary next-section-button">
-                                            Next
+                                        <a data-prevent-default="" href="" class="btn btn-large btn-primary remaining-steps-section-button" id="finish_step" ng-click="addNewListing();">
+                                            Finish Remaining Steps
                                         </a>
-
 
                                     </div>
                                 </div>
@@ -1131,103 +1108,6 @@
                     <div class="manage-listing-content-background"></div>
                 </div>
 
-
-            <!--Calendar Div-->
-            <div ng-hide="calendarDiv" id="ajax_container" class="col-lg-10 col-md-9 mar-left-cont">
-                <div id="js-manage-listing-content-container" class="manage-listing-content-container">
-                    <div class="manage-listing-content-wrapper">
-                        <div id="js-manage-listing-content" class="manage-listing-content col-lg-7 col-md-7"><div><div id="calendar-container">
-                                    <div class="calendar-prompt-container">
-
-                                        <div class="row-space-4">
-                                            <div class="row">
-
-                                                <h3 class="col-12">Show Travelers When They Can Book</h3>
-
-                                            </div>
-                                            <p class="text-muted">You can always manually update your calendar to block dates or make them available. Start by selecting the option that best describes your hosting plans.</p>
-                                        </div>
-
-                                        <div class="space-4"></div>
-
-                                    </div>
-
-                                    <div class="calendar-settings-btn-container pull-right post-listed">
-    <span class="label-contrast label-new
-      hide">NEW</span>
-                                        <a href="#" id="js-calendar-settings-btn" class="text-normal link-icon">
-                                            <i class="icon icon-cog text-lead"></i>
-                                            <span class="link-icon__text">messages.lys.header</span>
-                                        </a>
-                                    </div>
-
-                                    <div id="calendar">
-                                        <div class="row" id="wizard-container">
-                                            <div class="wizard-pane row row-table">
-                                                <div class="col-12 col-middle">
-                                                    <hr>
-                                                    <div class="row row-space-top-6">
-                                                        <h4 class="col-6">Select an option:</h4>
-                                                        <div class="col-6 text-right section-availability-dates">
-                                                            <div style="display: none;" class="js-saving-progress saving-progress">
-                                                                <h5>Saving...</h5>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <ul class="list-unstyled row text-center row-space-top-1 display-flex" ng-init="selected_calendar = ''">
-
-                                                        <li class="availability-option col-4 display-flex">
-                                                            <div data-slug="always" class="option-container available-always " id="available-always">
-                                                                <div class="calendar-image available-always"></div>
-                                                                <p class="row-space-top-4 row-space-1">Always Available</p>
-                                                                <div class="h6 choice-description row-space-1">A completely open calendar</div>
-                                                            </div>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="calendar-settings-container" class="row-space-6 hide">
-                                            <hr>
-
-                                        </div>
-
-                                        <div id="calendar-wizard-navigation">
-                                            <div class="not-post-listed row row-space-top-6 progress-buttons">
-                                                <div class="col-12">
-                                                    <div class="separator"></div>
-                                                </div>
-                                                <div class="col-2 row-space-top-1 next_step">
-
-                                                    <a data-prevent-default="" href="#" ng-click="selectPricingDiv();" class="back-section-button">Back</a>
-
-                                                </div>
-
-                                                <div class="col-10 text-right">
-
-                                                    <a data-prevent-default="" href="" class="btn btn-large btn-primary remaining-steps-section-button" id="finish_step" ng-click="addNewListing();">
-                                                        Finish Remaining Steps
-                                                    </a>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pricing-tips-sidebar-container"></div>
-                            </div></div>
-                    </div>
-                    <div class="manage-listing-content-background"></div>
-                </div>      </div>
-        </div>
 
 
 

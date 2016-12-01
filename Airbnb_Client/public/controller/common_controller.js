@@ -1630,6 +1630,27 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         });
     });
 
+    $scope.placeBid=function()
+    {
+        $http
+        ({
+            method: 'POST',
+            url: '/updateBasePrice',
+            data:
+            {
+                "propertyId":$scope.room_result.rooms_address.room_id,
+                "maxBidPrice":$scope.bidAmount,
+                "hostId":$scope.room_result.users.profile_picture.user_id
+            }
+        }).success(function(data)
+        {
+            if(data.statusCode==200)
+            {
+                $scope.room_result.rooms_price.night=$scope.bidAmount;
+            }
+        });
+    }
+
     $scope.book = function () {
         var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
         var change_url = "/getPaymentPage?";
@@ -1990,6 +2011,19 @@ app.controller('addListing_controller',function ($scope,$http,Data,$window,Uploa
     $scope.descriptionDiv=true;
     $scope.photoP=true;
     $scope.videoDisp=true;
+    $scope.biddingDiv=true;
+$scope.biddingChange=function()
+{
+    if($scope.bidding==true)
+    {
+        $scope.biddingDiv=false;
+    }
+    else
+    {
+        $scope.biddingDiv=true;
+    }
+
+}
 
 $scope.loadPhotos=function()
 {
@@ -2064,6 +2098,7 @@ $scope.loadVideo=function()
             url: '/addNewListing',
             data:
             {
+
                 "media":$scope.photosList,
                 "video":$scope.videoUrl,
                 "maxGuest":JSON.parse($scope.formData).accommodates,
@@ -2082,9 +2117,11 @@ $scope.loadVideo=function()
                 "price":$scope.base_price,
                 "latitude":JSON.parse($scope.formData).latitude,
                 "longitude":JSON.parse($scope.formData).longitude,
-                "createdDate":Date.now()/1000,
+                "createdDate":Date.now(),
                 "isApproved":false,
-                "isBidding":$scope.bidding
+                "isBidding":$scope.bidding,
+                "startDate":$scope.startDate,
+                "endDate":$scope.endDate
 
             }
         }).success(function(data)
@@ -2096,6 +2133,42 @@ $scope.loadVideo=function()
         });
     }
 
+
+    $scope.testData=function()
+    {
+        var data=
+        {
+
+            media:$scope.photosList,
+            video:$scope.videoUrl,
+            maxGuest:JSON.parse($scope.formData).accommodates,
+            roomType:JSON.parse($scope.formData).roomType,
+            propertyType:JSON.parse($scope.formData).propertyType,
+            address:$scope.address_1,
+            city:$scope.city,
+            state:$scope.state,
+            country:$scope.country,
+            zipCode:$scope.pinCode,
+            bedrooms:$scope.bedrooms,
+            beds:$scope.beds,
+            bathrooms:$scope.bathrooms,
+            name:$scope.name,
+            description:$scope.summary,
+            price:$scope.base_price,
+            latitude:JSON.parse($scope.formData).latitude,
+            longitude:JSON.parse($scope.formData).longitude,
+            createdDate:Date.now()/1000,
+            isApproved:false,
+            isBidding:$scope.bidding,
+            startDate:$scope.startDate,
+            endDate:$scope.endDate
+
+        }
+        console.log(data);
+        var d=new Date($scope.startDate);
+
+        console.log(d.getUTCDate());
+    }
     /*Video upload*/
     $scope.submit = function() {
         if ($scope.video) {

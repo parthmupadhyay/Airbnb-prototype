@@ -112,6 +112,13 @@ exports.addNewListing=function (request,response)
     else
         var video="";
 
+    var startDate="";
+    var endDate="";
+    if(request.param("startDate")&&request.param("endDate"))
+    {
+        startDate=request.param("startDate");
+        endDate=request.param("endDate");
+    }
     var msg_payload=
     {
         "hostId":request.session.userId,
@@ -129,13 +136,16 @@ exports.addNewListing=function (request,response)
         "name":request.param("name"),
         "description":request.param("description"),
         "price":request.param("price"),
+        "maxBidPrice":request.param("price"),
         "latitude":request.param("latitude"),
         "longitude":request.param("longitude"),
         "createdDate":request.param("createdDate"),
         "isApproved":request.param("isApproved"),
         "isBidding":request.param("isBidding"),
         "media":mediaUrls,
-        "video":video
+        "video":video,
+        "startDate":startDate,
+        "endDate":endDate
     }
 
     console.log(msg_payload);

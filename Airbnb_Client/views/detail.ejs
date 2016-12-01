@@ -451,10 +451,18 @@ top: -34px;">
                                                             <label for="bid">
                                                                 Bid Amount
                                                             </label>
-                                                            <input ng-model="bid"
+                                                            <input ng-model="bidAmount"
                                                                    class="checkin"
                                                                    autocomplete="off" id="bid" name="bid"
                                                                    placeholder="Bid Amount" type="text">
+                                                            </br>
+                                                            <label for="bid">
+                                                                Start Date : {{room_result.startDate | date : 'mediumDate'}}
+                                                            </label>
+
+                                                            <label for="bid">
+                                                                End Date : {{room_result.endDate | date : 'mediumDate'}}
+                                                            </label>
                             </div>
                                                     </div>
                                                 </div>
@@ -464,7 +472,7 @@ top: -34px;">
                                         <div class="js-book-it-status">
                                             <div class="js-book-it-enabled clearfix">
                                                 <div class="js-book-it-btn-container ">
-                                                    <button type="submit"
+                                                    <button type="button"
                                                             ng-click="placeBid()"
                                                             class="js-book-it-btn btn btn-large btn-block btn-primary">
                                                             <span class="book-it__btn-text ">

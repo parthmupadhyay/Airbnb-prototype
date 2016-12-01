@@ -28,9 +28,12 @@ var propertySchema = new Schema({
     latitude: {type: String},
     longitude: {type: String},
     createdDate: {type: Number},
-    revenue: {type: Number}
+    revenue: {type: Number},
+    startDate:{type:String},
+    endDate:{type:String}
 });
 propertySchema.index({address:'text',city:'text',state:'text',country:'text',zip:'text'});
 var Property = mongoose.model('Property', propertySchema);
 
 module.exports = Property;
+

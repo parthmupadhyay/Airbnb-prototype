@@ -77,11 +77,13 @@ exports.addNewListing=function(msg,callback)
     newListing.isApproved=msg.isApproved;
     newListing.isBidding=msg.isBidding;
     newListing.isAvailable=true;
+    newListing.startDate=toDate(msg.startDate).getTime();
+    newListing.endDate=toDate(msg.endDate).getTime();
     newListing.revenue=0;
     console.log("Media::"+msg.media);
     if(msg.isBidding) {
-        newListing.biddingDueTime = msg.createdDate / 1000 + (4 * 60);
-        newListing.maxBidPrice=0;
+        newListing.biddingDueTime = msg.createdDate  + (96 * 60*60*1000);
+        newListing.maxBidPrice=msg.maxBidPrice;
     }
     if(msg.media)
     {
@@ -188,3 +190,7 @@ exports.getReservations = function(msg, callback){
 };
 
 
+function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}

@@ -6,12 +6,39 @@ var Media = require('../model/media');
 var PropertyReview = require('../model/propertyReview');
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
+/*var redisClient = require('redis').createClient;
+var redis = redisClient(6379, 'localhost');
+redis.on('connect', function() {
+    console.log('redis connected');
+});
+
+
+exports.getCachedProperty=function(msg,callback)
+{
+
+    var id = new ObjectId(msg.id);
+    redis.get(id,function (err,result)
+    {
+        if(err)
+            exports.getProperty(msg,callback);
+        else if(!result)
+            exports.getProperty(msg,callback);
+        else
+        {
+            callback(null,result);
+        }
+    });
+
+
+}*/
 
 exports.getProperty = function (msg, callback) {
 
-    var id = msg.id;
+
+    var id = new ObjectId(msg.id);
+
     console.log(id);
-    Property.findOne({_id: new ObjectId(id)})
+    Property.findOne({_id:id })
         .populate('hostId')
         .populate('mediaId')
         .exec(function (err, record) {
@@ -84,6 +111,8 @@ exports.getProperty = function (msg, callback) {
                                 bed_type_name: "Futon",
                                 reviews_count: 0,
                                 overall_star_rating: "",
+                                startDate:record.startDate,
+                                endDate:record.endDate,
                                 rooms_address: {
                                     room_id: record._id,
                                     address_line_1: record.address,
@@ -160,6 +189,11 @@ exports.getProperty = function (msg, callback) {
                                     }
                                 } : null
                             };
+                            /*redis.set(id,resp,function (err)
+                            {
+                                console.log(err);
+                            });*/
+                            console.log(resp);
                             callback(null, resp);
                         });
                 }

@@ -6,6 +6,7 @@ var Trip=require('../model/trip');
 var Media = require('../model/media');
 var mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
+
 exports.doSearch = function (msg, callback) {
     "use strict";
     //added
