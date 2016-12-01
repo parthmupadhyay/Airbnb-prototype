@@ -257,8 +257,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div id="book_it" class="display-subtotal" style="top: 0px;">
+                            <div id="editListing" class="display-subtotal" style="top: 0px;" ng-hide="room_result.users.userSSN==<%=userSSN%>">
+                                <div class="js-book-it-btn-container ">
+                                    <div ng-click="redirectEditProperty(room_result.propertyId)"  class="js-book-it-btn btn btn-large btn-block btn-primary" >
+                                            Edit Listing
+                                            </div>
+                                </div>
+                            </div>
+                            <div id="book_it" class="display-subtotal" style="top: 0px;" ng-hide="room_result.users.userSSN!=<%=userSSN%>">
                                 <div ng-show="room_result.isBidding === false"
                                      ng-hide="room_result.isBidding === true" class="panel book-it-panel">
                                     <div class="panel-body panel-light">

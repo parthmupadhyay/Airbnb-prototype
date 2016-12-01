@@ -7,6 +7,7 @@ var tripSchema = new Schema({
     propertyId: {type: Schema.Types.ObjectId, ref: 'Property'},
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
     hostId: {type: Schema.Types.ObjectId, ref: 'User'},
+    billingId: {type: Schema.Types.ObjectId, ref: 'Billing'},
     checkIn: {type: Number},
     checkOut: {type: Number},
     noOfGuests: {type: Number},

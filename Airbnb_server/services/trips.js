@@ -68,10 +68,17 @@ exports.acceptTrip = function (msg, callback) {
                 bill.days = days;
                 bill.createdDate = Date.now();
                 bill.billingId = ssn.generate();
-                bill.save(function (err) {
+                bill.save(function (err)
+                {
                     if (!err) {
                         res.code = 200;
                         var revenue = total;
+                        doc.billingId=bill._id;
+                        doc.save(function (err)
+                        {
+                           console.log(err);
+                            console.log("Billing id not inserted in trip");
+                        });
                         Property.findOne({_id: doc.propertyId._id}, function (err, forRevenue) {
                             if (!err) {
                                 // console.log(forRevenue);

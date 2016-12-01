@@ -124,7 +124,7 @@
                                                 <a href="/property?propertyId={{listing._id}}">
                                                     <div class="media-photo media-photo-block">
                                                         <div class="media-cover text-center">
-                                                            <img src="../images/user/{{listing.mediaId[0]}}"
+                                                            <img src="images/user/{{listing.mediaId.imageUrl[0]}}"
                                                                  class="img-responsive-height">
                                                         </div>
                                                     </div>
@@ -240,7 +240,7 @@
                                                 <a href="/property?propertyId={{listing._id}}">
                                                     <div class="media-photo media-photo-block">
                                                         <div class="media-cover text-center">
-                                                            <img src="../images/user/{{listing.mediaId.imageUrl[0]}}"
+                                                            <img src="images/user/{{listing.mediaId.imageUrl[0]}}"
                                                                  class="img-responsive-height">
                                                         </div>
                                                     </div>
@@ -488,7 +488,7 @@
                                 <td>
                                     <span ng-bind="(reservation.checkIn | date:'shortDate') + ' to ' + (reservation.checkOut | date:'shortDate')"></span>
                                     <br>
-                                    <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
+                                    <a locale="en" href="/property?propertyId={{reservation.propertyId._id}}" ng-bind="reservation.propertyId.name"></a>
                                     <br>
                                     <span ng-bind="reservation.propertyId.address"></span>
 

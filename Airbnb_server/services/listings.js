@@ -43,7 +43,7 @@ exports.getActiveListings = function (msg, callback) {
                     }
 
                 }
-
+                console.log(properties.pending);
                 callback(null, properties);
             }
         })

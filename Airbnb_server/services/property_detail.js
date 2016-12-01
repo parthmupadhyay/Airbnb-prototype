@@ -79,6 +79,7 @@ exports.getProperty = function (msg, callback) {
                                 reviews: reviews,
                                 rating: rating,
                                 id: record._id,
+                                propertyId:record.propertyId,
                                 user_id: (record.hostId) ? record.hostId._id : null,
                                 name: record.name,
                                 summary: record.description,

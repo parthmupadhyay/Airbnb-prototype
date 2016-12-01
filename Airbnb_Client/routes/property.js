@@ -15,7 +15,7 @@ exports.loadDetailPg = function (req, res) {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
         "firstname": req.session.firstName,
-        "userSSN": req.session.userId,
+        "userSSN": req.session.userSSN,
         "lastName": req.session.lastName,
         "userId": req.session.userId,
         "isHost": req.session.isHost,

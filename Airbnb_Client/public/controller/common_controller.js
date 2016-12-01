@@ -1624,13 +1624,21 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     $scope.checkout = getParameterByName("checkout");
     $scope.guests = getParameterByName("guests");
     var url = "/detail?propertyId=" + room_id;
-    $http.get(url).then(function (response) {
+    $http.get(url).then(function (response)
+    {
+
         $scope.room_result = response.data;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
         });
     });
+
+
+    $scope.redirectEditProperty=function(propId)
+    {
+        $window.location.assign("/editProperty?propertyId="+propId);
+    }
 
     $scope.placeBid=function()
     {
