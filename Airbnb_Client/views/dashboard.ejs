@@ -8,7 +8,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    <link rel="shortcut icon" href="http://makent.trioangle.com/images/logos/favicon.ico">
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -105,22 +104,20 @@
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="#" aria-selected="true" class="subnav-item">Dashboard</a>
-                </li>
-
-                <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Listings</a>
+                    <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Profile</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Account</a>
+                    <a href="/profile/<%=userSSN%>" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
-
+                <li>
+                    <a href="/Account_Transactions" aria-selected="true" class="subnav-item">Account</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -132,8 +129,8 @@
                 <div class="panel space-4">
                     <div class="media media-photo-block
              dashboard-profile-photo panel-image ">
-                        <a href="http://makent.trioangle.com/users/show/10001" title="View Profile">
-                            <img src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg" class="img-responsive" width="190" height="190" title="Test" alt="Test">
+                        <a href="#" title="View Profile">
+                            <img src="#" class="img-responsive" width="190" height="190" title="Test" alt="Test">
                         </a>
 
                         <div class="upload-profile-photo-cta btn btn-contrast btn-block text-wrap">
@@ -179,9 +176,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <!-- <a href="http://makent.trioangle.com/users/edit_verification">
-                          Add Verifications
-                        </a> -->
+
                     </div>
                 </div>
 
@@ -191,7 +186,7 @@
 
                 <div class="panel space-4">
                     <div class="panel-header">
-                        Welcome to Makent, Test!
+                        Welcome to Airbnb, Test!
                     </div>
                     <div class="panel-body">
                         <p>
@@ -199,7 +194,7 @@
 
                         <ul class="list-unstyled">
                             <li class="space-2">
-                                <strong><a href="http://makent.trioangle.com/users/edit">Complete Your Profile</a></strong>
+                                <strong><a href="#">Complete Your Profile</a></strong>
                                 <div>Upload a photo and write a short bio to help hosts get to know you before inviting you into their home.</div>
                             </li>
                         </ul>

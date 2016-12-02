@@ -8,7 +8,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    <link rel="shortcut icon" href="http://makent.trioangle.com/images/logos/favicon.ico">
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -107,18 +106,17 @@
                 <li>
                     <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
-
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Listings</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="true" class="subnav-item">Profile</a>
+                    <a href="/profile/<%=userSSN%>" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Account</a>
+                    <a href="/Account_Transactions" aria-selected="true" class="subnav-item">Account</a>
                 </li>
 
             </ul>
@@ -184,7 +182,7 @@
                                         <input id="user_last_name" size="30" class="focus" name="last_name" type="text" ng-model="user.lastName">
                                         <span class="text-danger"></span>
                                         <p style="color:red" ng-show="last_invalid">Last Name is Required</p>
-                                        <div class="text-muted row-space-top-1">This is only shared once you have a confirmed booking with another Makent user.</div>
+                                        <div class="text-muted row-space-top-1">This is only shared once you have a confirmed booking with another Airbnb user.</div>
                                     </div>
                                 </div>
 
@@ -199,7 +197,7 @@
                                         <input id="user_email" size="30" class="focus" name="email" type="text" ng-model="user.email">
                                         <span class="text-danger"></span>
                                         <p style="color:red" ng-show="email_invalid">Email is Required</p>
-                                        <div class="text-muted row-space-top-1">We won&rsquo;t share your private email address with other Makent users.</div>
+                                        <div class="text-muted row-space-top-1">We won&rsquo;t share your private email address with other Airbnb users.</div>
                                     </div>
                                 </div>
 
