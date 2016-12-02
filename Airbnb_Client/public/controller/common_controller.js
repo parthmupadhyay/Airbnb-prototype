@@ -1635,6 +1635,26 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         });
     });
 
+    $scope.removeListing=function()
+    {
+        $http
+        ({
+            method: 'GET',
+            url: '/removeListing/'+ $scope.room_result.rooms_address.room_id
+
+
+        }).success(function(data)
+        {
+            if(data.statusCode==200)
+            {
+                $window.location.href='/yourListings';
+            }
+            else if(data.statusCode==401)
+            {
+                alert("Listing removal failed");
+            }
+        });
+    }
 
     $scope.redirectEditProperty=function(propId)
     {
@@ -2488,17 +2508,22 @@ app.controller('activeListings_controller', function($scope, $http, $window){
     $scope.unapprovedReservationListings = false;
     $scope.pastText = "View Past Reservations";
 
+    $scope.loadListing=function()
+    {
+        console.log("loading listings");
     $http({
         method: 'GET',
         url: '/getActiveListings'
-    })
-        .success(function(data){
+    }).success(function(data){
             $scope.listed=data.listed;
             $scope.unlisted=data.unlisted;
             $scope.pending = data.pending;
+            console.log(data);
 
-
-        });
+    }).error(function (err)
+    {
+        console.log(err);
+    });
 
     $http({
         method: 'GET',
@@ -2508,10 +2533,10 @@ app.controller('activeListings_controller', function($scope, $http, $window){
             $scope.upcoming=data.upcoming;
             $scope.past=data.past;
             $scope.unapproved = data.unapproved;
-            console.log($scope.past);
+            console.log(data);
 
         });
-
+    }
 
     $scope.acceptTrip = function(tripId){
 

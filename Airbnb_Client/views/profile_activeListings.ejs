@@ -44,7 +44,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#f5f5f5">
 </head>
-<body ng-controller="activeListings_controller">
+<body ng-controller="activeListings_controller" ng-init="loadListing();">
 
 <% include header.ejs %>
 <% include modal.ejs %>
@@ -174,7 +174,7 @@
                                     <li class="listing panel-body">
                                         <div class="row row-table">
                                             <div class="col-2 col-middle">
-                                                <a href="#">
+                                                <a href="/property?propertyId={{listing._id}}">
                                                     <div class="media-photo media-photo-block">
                                                         <div class="media-cover text-center">
                                                             <img src="../images/1454911487_beautiful.jpg"
@@ -185,7 +185,7 @@
                                             </div>
                                             <div class="col-lg-7 col-md-10 col-middle">
         <span class="h4">
-        <a href="#" class="text-normal" ng-bind="listing.name"></a>
+        <a href="/property?propertyId={{listing._id}}" class="text-normal" ng-bind="listing.name"></a>
         </span>
                                                 <div class="actions row-space-top-1">
                                                     <a href="/editProperty?propertyId={{listing.propertyId}}">Manage Listing and Calendar</a>

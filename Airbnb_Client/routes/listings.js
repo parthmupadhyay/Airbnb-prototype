@@ -100,6 +100,32 @@ function saveMedia(Media,userId)
     return mediaUrls;
 }
 
+exports.removeListing=function(request,response)
+{
+    var msg_payload=
+    {
+        "propertyId":request.params.propertyId
+    }
+
+    console.log(msg_payload);
+
+    mq_client.make_request('removeListing_queue', msg_payload, function (err, result) {
+
+
+        if(!err)
+        {
+            console.log(result);
+            response.send(result);
+        }
+        else
+        {
+            console.log(err);
+            response.send(result);
+        }
+
+    });
+}
+
 exports.addNewListing=function (request,response)
 {
     console.log(request.param("media"));

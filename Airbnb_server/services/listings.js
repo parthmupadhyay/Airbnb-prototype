@@ -141,6 +141,32 @@ exports.addNewListing=function(msg,callback)
 };
 
 
+exports.removeListing=function (msg,callback)
+{
+    var propertyId=msg.propertyId;
+    console.log(propertyId);
+    var res={};
+    Property.findByIdAndUpdate(propertyId, { isAvailable: false },function (err,property)
+{
+    if(err)
+        callback(err,null);
+    else
+    {
+        console.log(property);
+        if(property)
+        {
+            res.statusCode=200;
+            callback(null,res);
+        }
+        else
+        {
+            res.statusCode=401;
+            callback(null,res);
+        }
+    }
+});
+
+}
 
 exports.getReservations = function(msg, callback){
 
