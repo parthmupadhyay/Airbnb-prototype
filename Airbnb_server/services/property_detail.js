@@ -130,6 +130,7 @@ exports.getProperty = function (msg, callback) {
                                 rooms_price: {
                                     room_id: record.id,
                                     night: record.price,
+                                    maxBidPrice:record.maxBidPrice,
                                     week: 0,
                                     month: 0,
                                     cleaning: 0,

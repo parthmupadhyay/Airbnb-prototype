@@ -99,7 +99,8 @@ exports.bidCron = function (msg, callback) {
                                     var conditions = {_id: new ObjectId(result2[0]._id)};
                                     var update = {
                                         'isBidCompleted': true,
-
+                                        'isAvailable':false,
+                                        'price':result2[0].maxBidPrice
 
                                     };
                                     Property.update(conditions, update, function (err, result3) {

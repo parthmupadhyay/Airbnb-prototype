@@ -242,7 +242,7 @@
                             </h4>
                             <div id="pricing" itemprop="offers" itemscope="" class="">
                                 <div id="price_amount" class="book-it-price-amount pull-left h3 text-special">&#36;
-                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.night}}</span>
+                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.maxBidPrice}}</span>
                                 </div>
                                 <i class="icon icon-bolt icon-beach pull-left h3 pricing__bolt"></i>
 
@@ -257,16 +257,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="editListing" class="display-subtotal" style="top: 0px;" ng-hide="room_result.users.userSSN==<%=userSSN%>">
+                            <div id="editListing" class="display-subtotal" style="top: 0px;"
+                                 ng-if="room_result.users.userSSN=='<%=userSSN%>'">
+
                                 <div class="js-book-it-btn-container ">
                                     <div ng-click="redirectEditProperty(room_result.propertyId)"  class="js-book-it-btn btn btn-large btn-block btn-primary" >
                                             Edit Listing
                                             </div>
                                 </div>
                             </div>
-                            <div id="book_it" class="display-subtotal" style="top: 0px;" ng-hide="room_result.users.userSSN!=<%=userSSN%>">
-                                <div ng-show="room_result.isBidding === false"
-                                     ng-hide="room_result.isBidding === true" class="panel book-it-panel">
+
+                            <div id="book_it" class="display-subtotal" style="top: 0px;" >
+                                <div ng-if="room_result.isBidding === false && room_result.users.userSSN!=<%=userSSN%>"
+                                     class="panel book-it-panel">
                                     <div class="panel-body panel-light">
                                         <div class="form-fields">
                                             <div class="row row-condensed space-3">
@@ -445,8 +448,8 @@ top: -34px;">
                                         </div>
                                     </div>
                                 </div>
-                                <div ng-show="room_result.isBidding === true"
-                                     ng-hide="room_result.isBidding === false" class="panel book-it-panel">
+                                <div ng-if="room_result.isBidding == true && room_result.users.userSSN!='<%=userSSN%>'"
+                                      class="panel book-it-panel">
                                     <div class="panel-body panel-light">
                                         <div class="form-fields">
                                             <div class="row row-condensed space-3">
@@ -1338,6 +1341,11 @@ top: -34px;">
 
 
                                 </div>
+                                <br>
+                                <div id="introVideo" class="photo-grid row-space-4 row-space-top-4 hide-sm">
+                                    <h4 class="row-space-4 text-center-sm">Listing intro Video</h4>
+                                    <video controls ngf-src="videoUrl"  height="100%" width="100%"></video>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1360,7 +1368,7 @@ top: -34px;">
                                                 <div class="pull-left text-center">
                                                     <a class="media-photo media-round" href="#">
                                                         <img width="68" height="68" title="Mick"
-                                                             src="images/{{review.userImg}}" alt="Mick">
+                                                             src="images//user/{{review.userImg}}" alt="Mick">
                                                     </a>
                                                     <div class="name"><a class="text-muted" href="#">{{review.firstName}}
                                                             {{review.lastName}}</a></div>
@@ -1407,7 +1415,7 @@ top: -34px;">
                                     <a href="/profile/{{room_result.users.userSSN}}"
                                        class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
                                                                             data-pin-nopin="true" height="90"
-                                                                            src="images/{{room_result.users.profile_picture.src}}"
+                                                                            src="images/user/{{room_result.users.profile_picture.src}}"
                                                                             title="{{room_result.users.name}}" width="90"></a>
                                 </div>
                                 <div class="col-md-9">

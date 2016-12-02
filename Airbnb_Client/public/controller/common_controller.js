@@ -1628,6 +1628,7 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     {
 
         $scope.room_result = response.data;
+        $scope.videoUrl="images/user/"+$scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
@@ -2103,6 +2104,11 @@ $scope.loadVideo=function()
     };
 
     $scope.addNewListing=function() {
+        if(!$scope.photosList)
+            $scope.photosList="";
+        if(!$scope.videoUrl)
+            $scope.videoUrl="";
+
         $http
         ({
             method: 'POST',
