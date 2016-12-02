@@ -6,31 +6,31 @@ var Media = require('../model/media');
 var PropertyReview = require('../model/propertyReview');
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
-/*var redisClient = require('redis').createClient;
-var redis = redisClient(6379, 'localhost');
-redis.on('connect', function() {
-    console.log('redis connected');
-});
-
-
-exports.getCachedProperty=function(msg,callback)
-{
-
-    var id = new ObjectId(msg.id);
-    redis.get(id,function (err,result)
-    {
-        if(err)
-            exports.getProperty(msg,callback);
-        else if(!result)
-            exports.getProperty(msg,callback);
-        else
-        {
-            callback(null,result);
-        }
-    });
-
-
-}*/
+// var redisClient = require('redis').createClient;
+// var redis = redisClient(6379, 'localhost');
+// redis.on('connect', function() {
+//     console.log('redis connected');
+// });
+//
+//
+// exports.getCachedProperty=function(msg,callback)
+// {
+//
+//     var id = new ObjectId(msg.id);
+//     redis.get(id,function (err,result)
+//     {
+//         if(err)
+//             exports.getProperty(msg,callback);
+//         else if(!result)
+//             exports.getProperty(msg,callback);
+//         else
+//         {
+//             callback(null,result);
+//         }
+//     });
+//
+//
+// }
 
 exports.getProperty = function (msg, callback) {
 
@@ -114,6 +114,7 @@ exports.getProperty = function (msg, callback) {
                                 overall_star_rating: "",
                                 startDate:record.startDate,
                                 endDate:record.endDate,
+                                isAvailable:record.isAvailable,
                                 rooms_address: {
                                     room_id: record._id,
                                     address_line_1: record.address,
@@ -191,10 +192,7 @@ exports.getProperty = function (msg, callback) {
                                     }
                                 } : null
                             };
-                            /*redis.set(id,resp,function (err)
-                            {
-                                console.log(err);
-                            });*/
+
                             console.log(resp);
                             callback(null, resp);
                         });

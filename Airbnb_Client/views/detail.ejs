@@ -258,11 +258,14 @@
                                     <div ng-click="redirectEditProperty(room_result.propertyId)"  class="js-book-it-btn btn btn-large btn-block btn-primary" >
                                             Edit Listing
                                             </div>
+                                    <div ng-if="room_result.isAvailable==true" ng-click="removeListing();"  class="js-book-it-btn btn btn-large btn-block btn-primary" >
+                                        Remove Listing
+                                    </div>
                                 </div>
                             </div>
 
                             <div id="book_it" class="display-subtotal" style="top: 0px;" >
-                                <div ng-if="room_result.isBidding === false && room_result.users.userSSN!=<%=userSSN%>"
+                                <div ng-if="room_result.isBidding === false && room_result.users.userSSN!='<%=userSSN%>'"
                                      class="panel book-it-panel">
                                     <div class="panel-body panel-light">
                                         <div class="form-fields">
@@ -1297,18 +1300,20 @@ top: -34px;">
                                     <!-- 5 -->
 
 
-                                    <div class="row featured-height">
+                                    <div class="">
                                         <div class="col-12 row-full-height img-box1">
-                                            <a class="photo-grid-photo photo-trigger gallery"
-                                               style="background-image: url(images/user/{{room_result.images[0]}})"
-                                               href="images/user/{{room_result.images[0]}}" data-index="1"
-                                               data-lightbox-type="iframe">
 
-                                            </a>
+                                            <div id="introVideo" class="">
+                                                <h4 class="row-space-4 text-center-sm">Listing intro Video</h4>
+                                                <video autoplay loop controls ngf-src="videoUrl"  height="100%" width="655px"></video>
+                                            </div>
+
+                                            <br>
                                         </div>
                                     </div>
+                                    <div class="gap"></div>
 
-
+                                    <h4 class="row-space-4 text-center-sm">Listing Pictures</h4>
                                     <div class="col-6 supporting-height img-box1" ng-repeat="image in room_result.images">
                                         <a class="photo-grid-photo photo-trigger gallery"
                                            style="background-image: url(images/user/{{image}})"
@@ -1319,18 +1324,19 @@ top: -34px;">
                                     </div>
 
 
+<br>
+<br>
+
 
                                 </div>
-                                <br>
-                                <div id="introVideo" class="photo-grid row-space-4 row-space-top-4 hide-sm">
-                                    <h4 class="row-space-4 text-center-sm">Listing intro Video</h4>
-                                    <video controls ngf-src="videoUrl"  height="100%" width="100%"></video>
-                                </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <div id="reviews" class="room-section webkit-render-fix">
                 <div class="panel">
