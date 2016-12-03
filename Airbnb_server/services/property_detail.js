@@ -129,6 +129,7 @@ exports.getProperty = function (msg, callback) {
                                         steps_count: 0
                                     },
                                     rooms_price: {
+                                        multiplier:record.multiplier,
                                         room_id: record.id,
                                         night: record.price,
                                         maxBidPrice: record.maxBidPrice,

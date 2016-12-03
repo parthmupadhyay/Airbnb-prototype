@@ -80,6 +80,7 @@ exports.addNewListing=function(msg,callback)
     newListing.startDate=toDate(msg.startDate).getTime();
     newListing.endDate=toDate(msg.endDate).getTime();
     newListing.revenue=0;
+    newListing.multiplier=1;
     console.log("Media::"+msg.media);
     if(msg.isBidding) {
         newListing.biddingDueTime = msg.createdDate  + (96 * 60*60*1000);

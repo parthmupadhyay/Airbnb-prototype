@@ -106,7 +106,7 @@ exports.addHostReview=function(msg,callback)
 exports.updateUsertoHost=function(msg,callback)
 {
     console.log("updateUsertoHost!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    User.findByIdAndUpdate(msg.userId, { isHost: true }, function(err, user) {
+    User.findByIdAndUpdate(msg.userId, { isHost: true ,isApproved:false}, function(err, user) {
         if (err)
             callback(err,null);
 

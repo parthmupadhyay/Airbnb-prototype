@@ -23,6 +23,7 @@ var listings = require('./routes/listings');
 var trips = require('./routes/trips');
 var bid = require('./routes/bid');
 var cronBid = require('./routes/cronBid');
+var dynamicPricing=require('./routes/dynamicPricingCron');
 
 
 

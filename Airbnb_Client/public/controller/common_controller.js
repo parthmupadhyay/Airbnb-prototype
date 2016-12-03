@@ -1637,9 +1637,10 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         }
 
         $scope.videoUrl="images/user/"+$scope.room_result.video_url;
-        url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
+        url = "/getHostReview/" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
-            $scope.hostReviews = response.data;
+            $scope.hostReview= response.data.hostReview;
+            console.log($scope.hostReviews);
         });
     });
 

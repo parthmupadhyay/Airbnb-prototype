@@ -39,17 +39,23 @@ exports.loadDetailPg = function (req, res) {
 exports.getPropertyRedis = function(req, res){
 
     var id = req.param("propertyId");
+    if(client.connected) {
 
-    client.hget("properties", id, function (err, obj) {
 
-        if(obj) {
-            console.log("From redis");
-            res.end(obj);
-        }
-        else {
-            getProperty(req, res);
-        }
-    });
+        client.hget("properties", id, function (err, obj) {
+           
+            if (obj) {
+                console.log("From redis");
+                res.end(obj);
+            }
+            else {
+                getProperty(req, res);
+            }
+        });
+    }
+    else {
+        getProperty(req, res);
+    }
 };
 
 
@@ -72,7 +78,7 @@ exports.fetchPropertyRedis = function (req, callback) {
 };
 
 
-function getProperty (req, res, next) {
+function getProperty (req, res) {
     var id = req.param("propertyId");
 
     var msg_payload = {

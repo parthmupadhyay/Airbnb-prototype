@@ -12,6 +12,7 @@ var listings = require('./services/listings');
 var user = require('./services/user');
 var property = require('./services/property');
 var bid = require('./services/bid');
+var dynamicPricing=require('./services/dynamicPricing');
 
 
 var cnn = amqp.createConnection({host: '127.0.0.1'});
@@ -602,6 +603,19 @@ cnn.on('ready', function () {
     cnn.queue('bidCron_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             bid.bidCron(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('dynamicPricingCron_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            dynamicPricing.dynamicPriceCron(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',

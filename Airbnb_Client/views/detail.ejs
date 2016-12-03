@@ -91,40 +91,7 @@
 
 <main id="site-content" role="main" ng-controller="room_details_controller">
 
-    <div class="subnav-container">
 
-        <div data-sticky="true" data-transition-at="#summary" aria-hidden="true" class="subnav section-titles hide-md">
-            <div class="page-container-responsive">
-                <ul class="subnav-list">
-                    <li>
-                        <a href="#photos" aria-selected="true" class="subnav-item">
-                            Photos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#summary" class="subnav-item" data-extra="#summary-extend">
-                            About this listing
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#reviews" class="subnav-item">
-                            Reviews
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#host-profile" class="subnav-item">
-                            The Host
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#neighborhood" class="subnav-item">
-                            Location
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <div id="og_pro_photo_prompt" class="container"></div>
 
@@ -504,9 +471,9 @@ top: -34px;">
                             <p>{{room_result.summary}}</p>
 
                             <p class="text-center-sm">
-                                <a id="contact-host-link" href="javascript:void(0);">
+                                <!--<a id="contact-host-link" href="javascript:void(0);">
                                     <strong>Contact Host</strong>
-                                </a>
+                                </a>-->
                             </p>
 
 
@@ -1395,7 +1362,7 @@ top: -34px;">
                                                                             src="images/user/{{room_result.users.profile_picture.src}}"
                                                                             title="{{room_result.users.name}}" width="90"></a>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-9"  >
                                     <div class="row row-condensed space-2">
                                         <div class="col-md-6">
                                             <div>
@@ -1404,34 +1371,78 @@ top: -34px;">
                                         </div>
                                     </div>
                                     <div id="contact_wrapper">
-                                        <button id="host-profile-contact-btn" class="btn btn-small btn-primary">
+                                        <a href="/profile/{{room_result.users.userSSN}}"><button id="host-profile-contact-btn" class="btn btn-small btn-primary">
                                             Contact Host
-                                        </button>
+                                        </button></a>
+                                    </div>
+                                    <div class="text-center text-wrap" style="margin-top:-64px">
+                                        <div class="row-space-top-1">Reviews</div>
+                                        <div class="badge-pill h3">
+                                            <span class="badge-pill-count">{{hostReview.length}}</span>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
 
                             <hr class="space-4 space-top-4">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="text-muted">
-                                        Trust
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="row row-condensed">
-                                        <div class="col-sm-4 col-md-3">
-                                            <a class="link-reset" rel="nofollow"
-                                               href="/profile/{{room_result.users.userSSN}}">
-                                                <div class="text-center text-wrap">
-                                                    <div class="badge-pill h3">
-                                                        <span class="badge-pill-count">{{hostReviews.count}}</span>
+
+                                <div class="col-md-12">
+
+
+
+                                            <div class="reviews_section as_guest row-space-top-3">
+                                                <h4 class="row-space-4">
+                                                    Property Reviews
+                                                </h4>
+                                                <div  class="reviews" ng-repeat="review in hostReview">
+                                                    <div id="review-1" class="row text-center-sm">
+                                                        <div class="col-md-2 col-sm-12">
+                                                            <div class="avatar-wrapper">
+
+                                                                <a class="text-muted"
+                                                                   href="/profile/{{review.userId.userId}}">
+                                                                    <div class="media-photo media-round row-space-1">
+                                                                        <img style="display: inline;" title="Test"
+                                                                             src="/images/user/{{review.userId.profileImage}}"
+                                                                             class="lazy" alt="review.userId.firstName" width="68" height="68">
+                                                                    </div>
+                                                                    <div class="text-center profile-name text-wrap">
+                                                                        {{review.userId.firstName}}
+                                                                    </div>
+                                                                </a>
+                                                                <div class="text-muted date show-sm">{{review.userId.createdDate}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10 col-sm-12">
+                                                            <div class="row-space-2">
+                                                                <div class="comment-container expandable expandable-trigger-more row-space-2 expanded">
+                                                                    <div class="expandable-content">
+                                                                        <p>{{review.review}}</p>
+                                                                        <div class="expandable-indicator"></div>
+                                                                    </div>
+                                                                    <a href="http://makent.trioangle.com/users/show/49483864#"
+                                                                       class="expandable-trigger-more text-muted">
+                                                                        <strong>+ More</strong>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="text-muted date hide-sm pull-left">
+                                                                    {{review.userId.createdDate | date: 'MMM yyyy'}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="row-space-top-1">Reviews</div>
+                                                    <div class="row row-space-2 line-separation">
+                                                        <div class="col-10 col-offset-2">
+                                                            <hr>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                            </div>
+
+
                                 </div>
                             </div>
                         </div>

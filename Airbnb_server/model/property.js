@@ -30,7 +30,8 @@ var propertySchema = new Schema({
     createdDate: {type: Number},
     revenue: {type: Number},
     startDate:{type:String},
-    endDate:{type:String}
+    endDate:{type:String},
+    multiplier:{type:String}
 });
 propertySchema.index({city:'text', state:'text'});
 var Property = mongoose.model('Property', propertySchema);
