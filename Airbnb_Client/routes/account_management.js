@@ -139,9 +139,9 @@ exports.payoutTransactions = function (req, res, next) {
     });
 };
 exports.receiptPage = function (req, res, next) {
-    var billingID = req.params.billingID;
+    var tripId = req.params.tripId;
     var msg_payload = {
-        bID: billingID
+        tripId: tripId
     };
     mq_client.make_request('receiptPage_queue', msg_payload, function (err, user) {
         if (err) {
@@ -160,7 +160,8 @@ exports.receiptPage = function (req, res, next) {
                 "isHost": req.session.isHost,
                 "profileImage": req.session.profileImage
             };
-            console.log(user_data);
+            // console.log(user_data);
+            console.log(user);
             res.render('receipt', user_data);
         }
     });

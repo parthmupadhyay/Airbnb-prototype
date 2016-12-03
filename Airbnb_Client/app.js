@@ -89,7 +89,7 @@ app.get('/getActiveListings', listings.getActiveListings);
 app.get('/getActiveListings/:userId', listings.getActiveListingsFromId);
 app.get('/getReservations', listings.getReservations);
 app.post('/acceptTrip', trips.acceptTrip);
-app.get('/itinerary/:tripId', trips.displayItinerary);
+
 app.get('/profile/*', render.userProfile);
 app.get('/getUserProfile/:userId', users.getUserProfile);
 app.get('/getUserReview/:userId', users.getUserReview);
@@ -102,9 +102,10 @@ app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);
 app.post('/confirmBooking', account.confirmBooking);
 
-app.get('/receipt/:billingID', account_management.receiptPage);
+app.get('/receipt/:tripId', account_management.receiptPage);
 
-app.post('/itinerary', trips.loadItinerary);
+app.get('/itinerary/:tripId', trips.displayItinerary);
+app.get('/itinerary', render.itinerary);
 
 app.get('/addListing', render.addListing);
 app.post('/addNewListing', listings.addNewListing);

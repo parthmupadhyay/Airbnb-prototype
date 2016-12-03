@@ -125,7 +125,7 @@ exports.payoutTransactions = function (msg, callback) {
 };
 exports.receiptPage = function (msg, callback) {
     console.log("receiptPage service");
-    Billing.find({_id: new ObjectId(msg.bID)}).populate('propertyId').populate('hostId').populate('userId').populate('tripID').exec(function (err, result) {
+    Billing.find({tripId: msg.tripId}).populate('propertyId').populate('hostId').populate('userId').populate('tripID').exec(function (err, result) {
         if (err) {
             console.log("err in billing receipt");
             callback(err, null);

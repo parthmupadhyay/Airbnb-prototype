@@ -93,7 +93,7 @@
                         <a ng-click="clickPending()" href="" aria-selected="{{pendingListings}}" class="sidenav-item">Pending Listings</a>
                     </li>
                     <li>
-                        <a ng-click="clickReservation()" href="" aria-selected={{reservationListings}} class="sidenav-item">Your Reservations</a>
+                        <a id="upcomingReservations" ng-click="clickReservation()" href="" aria-selected={{reservationListings}} class="sidenav-item">Your Reservations</a>
                     </li>
                     <li>
                         <a ng-click="clickUnapprovedReservation()" href="" aria-selected="{{unapprovedReservationListings}}" class="sidenav-item">Unapproved Reservations</a>
@@ -530,7 +530,7 @@
                             </tbody></table>
                     </div>
                     <div class="panel-body">
-                        <a href="">View upcoming reservations</a>
+                        <a ng-click="clickReservation()" href="">View upcoming reservations</a>
                     </div>
                 </div>
             </div>

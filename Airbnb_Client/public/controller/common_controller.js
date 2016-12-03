@@ -2405,10 +2405,11 @@ app.controller('addProperty_controller', function($scope, $http,Data,$window){
 app.controller('itinerary_controller', function($scope, $http, $window){
 
     var tripId = getParameterByName("tripId");
-    $http.post('/itinerary', {tripId: tripId})
+    console.log(tripId);
+    $http.get('/itinerary/'+tripId)
         .success(function (data) {
             console.log(data);
-            var info = data.data;
+            var info = data;
             $scope.trips = info.trip;
             $scope.bills = info.bill;
         })

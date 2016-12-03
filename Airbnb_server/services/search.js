@@ -12,14 +12,14 @@ exports.doSearch = function (msg, callback) {
     //added
     var user_id = msg.user_id;
     var location = msg.location;
-    var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
+    var property_type = (msg.property_type === '' || msg.property_type === undefined || msg.property_type === null) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
 
     var checkin;
     var checkout;
     var checkinmillis;
     var checkoutmillis;
 
-    if(msg.checkin === undefined){
+    if(msg.checkin === '' || msg.checkin === undefined || msg.checkin === null ){
 
         checkin = Date.now();
         checkinmillis = checkin;
@@ -27,7 +27,9 @@ exports.doSearch = function (msg, callback) {
         checkin = toDate(msg.checkin);
         checkinmillis = checkin.getTime();
     }
-    if(msg.checkout == undefined){
+
+
+    if(msg.checkout === '' || msg.checkout === undefined || msg.checkout === null){
         checkout = Date.now() + 86400000;
         checkoutmillis = checkout;
     } else {
@@ -40,7 +42,7 @@ exports.doSearch = function (msg, callback) {
     // var checkinmillis = checkin.getTime();
     // var checkoutmillis = checkout.getTime();
 
-    var guests = msg.guests === undefined ? 1 : msg.guests;
+    var guests = (msg.guests === '' || msg.guests === undefined || msg.guests === 'null') ? 1 : msg.guests;
     var propertiesIds = [];
     var propertiesIdsWithoutTrip = [];
     var response = {

@@ -102,7 +102,7 @@ exports.test = function(request, response){
 exports.itinerary = function(request, response){
 
 
-    response.end("viewitinerary",getUserData(request));
+    response.render("viewitinerary",getUserData(request));
 };
 
 exports.userProfile=function(request,response) {

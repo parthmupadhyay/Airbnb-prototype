@@ -18,7 +18,7 @@ exports.getUserTrips = function(request, response){
             console.log(trips);
             for(var i=0;i<trips.length;i++)
             {
-                
+
                 if(trips[i].isAccepted)
                 {
                     trips[i].isAccepted="Accepted";
@@ -73,7 +73,7 @@ exports.displayItinerary = function(request, response){
         if(!err){
 
             if(trips)
-                response.render("viewitinerary", {itinerary:JSON.stringify(trips)});
+                response.end(JSON.stringify(trips));
             else
                 response.end();
         }
