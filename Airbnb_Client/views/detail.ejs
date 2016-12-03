@@ -203,7 +203,7 @@
                             </h4>
                             <div id="pricing" itemprop="offers" itemscope="" class="">
                                 <div id="price_amount" class="book-it-price-amount pull-left h3 text-special">&#36;
-                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.night}}</span>
+                                    <span id="rooms_price_amount" value=""> {{room_result.rooms_price.night}}X {{room_result.rooms_price.multiplier}}=${{room_result.rooms_price.night*room_result.rooms_price.multiplier}}</span>
                                 </div>
                                 <i class="icon icon-bolt icon-beach pull-left h3 pricing__bolt"></i>
 
@@ -211,6 +211,7 @@
                                     <div id="per_night" class="per-night">
                                         Per Night
                                     </div>
+
                                     <div id="per_month" class="per-month hide">
                                         Per Month
                                         <i id="price-info-tooltip" class="icon icon-question hide"
