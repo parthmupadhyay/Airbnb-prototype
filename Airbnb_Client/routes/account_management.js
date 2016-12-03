@@ -138,6 +138,7 @@ exports.payoutTransactions = function (req, res, next) {
         }
     });
 };
+
 exports.receiptPage = function (req, res, next) {
     var tripId = req.params.tripId;
     var msg_payload = {

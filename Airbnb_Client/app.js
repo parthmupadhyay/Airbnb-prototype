@@ -25,6 +25,9 @@ var bid = require('./routes/bid');
 var cronBid = require('./routes/cronBid');
 
 
+
+
+
 var app = express();
 app.use(fileUpload());
 app.use(passport.initialize());
@@ -80,6 +83,7 @@ app.get('/getEditPropertyPage/:propertyId', property.getEditPropertyPage);
 
 app.get('/property', property.loadDetailPg);
 app.get('/detail', property.getProperty);
+app.get('/redisDetail', property.getPropertyRedis);
 
 app.get('/yourTrips', render.tripPage);
 app.get('/getUserTrips', trips.getUserTrips);

@@ -1623,10 +1623,11 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     $scope.checkin = getParameterByName("checkin");
     $scope.checkout = getParameterByName("checkout");
     $scope.guests = getParameterByName("guests");
-    var url = "/detail?propertyId=" + room_id;
+    // var url = "/detail?propertyId=" + room_id;
+    var url = "/redisDetail?propertyId=" + room_id;
     $http.get(url).then(function (response)
     {
-
+        console.log(response);
         $scope.room_result = response.data;
         $scope.videoUrl="images/user/"+$scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;

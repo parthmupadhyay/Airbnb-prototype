@@ -3,12 +3,23 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
+var redis = require('redis');
+var client = redis.createClient();
 /*var log = require("./log");*/
 /*
  var mongo = require("./mongo");
  var config = require('./config.js');
  */
 
+client.on('ready', function () {
+
+    console.log("Redis Ready");
+
+});
+
+client.on('error', function (err) {
+    console.log("Error " + err);
+});
 
 exports.loadDetailPg = function (req, res) {
     var user_data = {
@@ -25,7 +36,43 @@ exports.loadDetailPg = function (req, res) {
     res.render('detail',user_data);
 };
 
-exports.getProperty = function (req, res, next) {
+exports.getPropertyRedis = function(req, res){
+
+    var id = req.param("propertyId");
+
+    client.hget("properties", id, function (err, obj) {
+
+        if(obj) {
+            console.log("From redis");
+            res.end(obj);
+        }
+        else {
+            getProperty(req, res);
+        }
+    });
+};
+
+
+exports.fetchPropertyRedis = function (req, callback) {
+    var msg_payload = {
+        id: req
+    };
+
+    mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+        if (err) {
+            // console.log(err);
+            var json_responses = {"statusCode": 401};
+            callback(err, json_responses);
+        } else {
+            // console.log(result);
+            // var json_responses = {"statusCode": 200, "data": result};
+            callback(err, result);
+        }
+    });
+};
+
+
+function getProperty (req, res, next) {
     var id = req.param("propertyId");
 
     var msg_payload = {
@@ -38,14 +85,16 @@ exports.getProperty = function (req, res, next) {
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
         } else {
-            console.log(result);
+            console.log(result.id);
+            console.log("From mongoose");
+            client.hmset("properties", result.id, JSON.stringify(result), redis.print);
             // var json_responses = {"statusCode": 200, "data": result};
             res.send(result);
             res.end();
 
         }
     });
-};
+}
 
 
 
@@ -134,4 +183,4 @@ exports.getEditPropertyPage = function (req, res) {
 };
 
 
-
+exports.getProperty = getProperty;

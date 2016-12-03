@@ -52,10 +52,10 @@
                     <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourTrips" aria-selected="true" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="/profile/<%=userSSN%>" aria-selected="true" class="subnav-item">Profile</a>
+                    <a href="/profile/<%=userSSN%>" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
                     <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
@@ -95,8 +95,9 @@
         </span>
                                     <br>
                                 </td>
-                                <td class="location">
-                                    {{trip.propertyId.address}}, {{trip.propertyId.city}}
+                                <td  class="location">
+                                    <a href="/property?propertyId={{trip.propertyId._id}}"> {{trip.propertyId.address}}, {{trip.propertyId.city}}
+                                    </a>
                                 </td>
                                 <td class="host"><a href="/profile/{{trip.hostId.userId}}">{{trip.hostId.firstName}} {{trip.hostId.lastName}}</a></td>
                                 <td class="dates">{{trip.checkIn | date : 'mediumDate'}} -- {{trip.checkOut | date: 'mediumDate'}}</td>
