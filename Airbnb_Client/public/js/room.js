@@ -2064,9 +2064,9 @@ $(document).ready(function(){
             }
         });
     }
-    $(document).ready(function(){
-        $(document).on("scroll", onScroll);
-    });
+    // $(document).ready(function(){
+    //     $(document).on("scroll", onScroll);
+    // });
   });
 
-// header and bookit container fixed
+// hea  der and bookit container fixed

@@ -178,8 +178,18 @@
                                                         </dl>
                                                     </div>
                                                 </td>
+
                                                 <td class="val text-right">
                                                     &#36;{{totalperday * days}}
+                                                </td>
+                                            </tr>
+
+                                            <tr style="margin-top:1%" class="base-price">
+                                                <td class="name pos-rel">
+                                                    Airbnb Service Fees
+                                                </td>
+                                                <td class="val text-right">
+                                                    $35
                                                 </td>
                                             </tr>
 
@@ -193,7 +203,7 @@
                                             <tr class="total">
                                                 <td class="name"><span class="h3">Total</span></td>
                                                 <td class="text-special icon-dark-gray text-right"><span class="h3">&#36;</span>
-                                                    <span class="h3" id="payment_total">{{totalperday * days}}</span>
+                                                    <span class="h3" id="payment_total">{{totalperday * days + 35}}</span>
                                                 </td>
                                             </tr>
 

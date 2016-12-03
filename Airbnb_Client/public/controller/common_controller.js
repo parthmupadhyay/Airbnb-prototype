@@ -1620,15 +1620,22 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 app.controller('room_details_controller', function ($scope, $window, $location, $http) {
     var room_id = getParameterByName('propertyId');
-    $scope.checkin = getParameterByName("checkin");
-    $scope.checkout = getParameterByName("checkout");
-    $scope.guests = getParameterByName("guests");
+
+    // $scope.checkin = getParameterByName("checkin");
+    // $scope.checkout = getParameterByName("checkout");
+    // $scope.guests = getParameterByName("guests");
     // var url = "/detail?propertyId=" + room_id;
     var url = "/redisDetail?propertyId=" + room_id;
     $http.get(url).then(function (response)
     {
+
         console.log(response);
         $scope.room_result = response.data;
+        if($scope.room_result.maxBidPrice)
+        {
+            $scope.room_result.night=$scope.room_result.maxBidPrice;
+        }
+
         $scope.videoUrl="images/user/"+$scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
@@ -1681,17 +1688,25 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
                 $scope.room_result.rooms_price.night=$scope.bidAmount;
             }
         });
-    }
+    };
 
-    $scope.book = function () {
-        var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
-        var change_url = "/getPaymentPage?";
-        change_url += "propertyId=" + $scope.room_result.id + "&";
-        change_url += "checkin=" + $scope.checkin + "&";
-        change_url += "checkout=" + $scope.checkout + "&";
-        change_url += "guests=" + $scope.guests + "&";
-        change_url += "nights=" + days;
-        window.location.href = change_url;
+    $scope.book = function (checkin, checkout, guests) {
+
+        var days = daydiff(toDate(checkin), toDate(checkout));
+        if(days >= 1 && guests >= 1 && guests != undefined) {
+            var change_url = "/getPaymentPage?";
+
+
+            change_url += "propertyId=" + $scope.room_result.id + "&";
+            change_url += "checkin=" + checkin + "&";
+            change_url += "checkout=" + checkout + "&";
+            change_url += "guests=" + guests + "&";
+            change_url += "nights=" + days;
+            console.log(change_url);
+            window.location.href = change_url;
+        } else {
+            alert("Invalid Entries");
+        }
     };
 
     function daydiff(first, second) {
@@ -1738,9 +1753,12 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                     $scope.firstName = user.firstName;
                     $scope.lastName = user.lastName;
                     $scope.zip = user.zip;
-                    var ccDate = user.expDate.split("/");
-                    $scope.expMonth = ccDate[0];
-                    $scope.expYear = ccDate[1];
+                    if(user.expDate) {
+                        var ccDate = user.expDate.split("/");
+                        $scope.expMonth = ccDate[0];
+                        $scope.expYear = ccDate[1];
+                    }
+
 
                 } else {
                     console.log("Error occured to get data");

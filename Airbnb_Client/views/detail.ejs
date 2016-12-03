@@ -236,7 +236,7 @@
                             </h4>
                             <div id="pricing" itemprop="offers" itemscope="" class="">
                                 <div id="price_amount" class="book-it-price-amount pull-left h3 text-special">&#36;
-                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.maxBidPrice}}</span>
+                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.night}}</span>
                                 </div>
                                 <i class="icon icon-bolt icon-beach pull-left h3 pricing__bolt"></i>
 
@@ -280,19 +280,10 @@
                                                                    class="checkin ui-datepicker-target hasDatepicker"
                                                                    autocomplete="off" id="list_checkin" name="checkin"
                                                                    placeholder="dd-mm-yyyy" type="text">
+
                                                         </div>
 
-                                                        <input type="hidden" ng-model="room_id"
-                                                               ng-init="room_id = 10008">
-                                                        <input type="hidden" id="room_blocked_dates" value="">
-                                                        <input type="hidden" id="calendar_available_price" value="">
-                                                        <input type="hidden" id="room_available_price" value="">
-                                                        <input type="hidden" id="price_tooltip" value="">
-                                                        <input type="hidden" id="url_checkin" value="">
-                                                        <input type="hidden" id="url_checkout" value="">
-                                                        <input type="hidden" id="url_guests" value="">
-                                                        <input type="hidden" name="booking_type" id="booking_type"
-                                                               value="">
+
 
                                                         <div class="col-sm-6 space-1-sm">
                                                             <label for="checkout">
@@ -428,7 +419,7 @@ top: -34px;">
 
                                                 <div class="js-book-it-btn-container ">
                                                     <button type="submit"
-                                                            ng-click="book()"
+                                                            ng-click="book(checkin, checkout, guests)"
                                                             class="js-book-it-btn btn btn-large btn-block btn-primary">
                                                             <span class="book-it__btn-text ">
                                                               Request to Book
