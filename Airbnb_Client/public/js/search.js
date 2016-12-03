@@ -743,6 +743,7 @@ app.directive('postsPagination', function(){
         var rooms_id = $(this).attr("data-room_id");
         var dataurl = $("#rooms_image_"+rooms_id).attr("rooms_image");
         var img_url =$("#rooms_image_"+rooms_id).attr("src");
+        console.log("hello" + img_url);
         if($.trim(dataurl) ==''){
             $(this).parent().addClass("loading");
             $http.post('rooms_photos', {rooms_id: rooms_id})

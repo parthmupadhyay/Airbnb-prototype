@@ -22,7 +22,7 @@
     <meta charset="utf-8">
 
     <!--[if IE 8]>
-    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/common_ie8.css">
+
 
     <![endif]-->
     <!--[if !(IE 8)]><!-->
@@ -48,16 +48,53 @@
     <style type="text/css">
         .ui-selecting { background: #FECA40; }
         .ui-selected { background: #F39814; color: white; }
+        /*.labels {*/
+            /*color: white;*/
+            /*background-color: red;*/
+            /*font-family: "Lucida Grande", "Arial", sans-serif;*/
+            /*font-size: 10px;*/
+            /*text-align: center;*/
+            /*width: 35px;*/
+            /*font-weight: 900;*/
+            /*white-space: nowrap;*/
+        /*}*/
+
+
         .labels {
-            color: white;
-            background-color: red;
-            font-family: "Lucida Grande", "Arial", sans-serif;
-            font-size: 10px;
-            text-align: center;
-            width: 35px;
-            font-weight: 900;
-            white-space: nowrap;
+            margin-top:-3px;
+            margin-left:-150px;
+            padding: 5px;
+            position: absolute;
+            visibility: visible;
+            z-index: 1030;
         }
+        .labels .arrow{
+            border-top-color: #fc5c63;
+            border-right-color: rgba(0,0,0,0);
+            border-bottom-color: rgba(0,0,0,0);
+            border-left-color: rgba(0,0,0,0);
+            /*border-width: 5px 5px 0;*/
+            bottom: 0;
+            left: 50%;
+            margin-left: -12px;
+            border-style: solid;
+            height: 0;
+            position: absolute;
+            width: 0;
+        }
+        .labels .inner{
+            background-color: #fc5c63;
+            border-radius: 4px;
+            color: #FFFFFF;
+            max-width: 200px;
+            padding: 3px 8px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+
+
     </style>
 
     <title>Search </title>
@@ -1046,7 +1083,7 @@
                       <i class="icon icon-heart wishlist-heart-unchecked icon-size-2 rich-toggle-unchecked"></i>
                       <i class="icon icon-heart-alt icon-white icon-size-2" id="wishlist-widget-icon-{{ rooms.id }}"
                          data-room_id="{{ rooms.id }}"
-                         data-img="http://makent.trioangle.com/images/{{ rooms.photo_name }}"
+                         data-img=/images/user/{{rooms.images[0]}}"
                          data-name="{{ rooms.name }}" data-address="{{ rooms.rooms_address.city }}"
                          data-price="{{ rooms.rooms_price.currency.symbol }}{{ rooms.rooms_price.night }}"
                          data-review_count="" data-host_img="{{ rooms.users.profile_picture.src }}" data-star_rating=""
