@@ -66,6 +66,8 @@ exports.acceptTrip = function (msg, callback) {
                 bill.toDate = doc.checkOut;
                 bill.total = total;
                 bill.days = days;
+                bill.price=doc.propertyId.price;
+                bill.multiplier=doc.propertyId.multiplier;
                 bill.createdDate = Date.now();
                 bill.billingId = ssn.generate();
                 bill.save(function (err)

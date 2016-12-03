@@ -13,6 +13,8 @@ var billingSchema = new Schema({
     fromDate: {type: Number},
     toDate: {type: Number},
     total: {type: Number},
+    price:{type:Number},
+    multiplier:{type:Number},
     days: {type: Number},
     createdDate: {type: Number}
 
