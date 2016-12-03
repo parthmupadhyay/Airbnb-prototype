@@ -52,17 +52,17 @@
       <section class="space-top-8 space-top-sm-4 space-4">
         <div class="row">
           <div class="col-9">
-            <h2 class="text-center-on-sm">You&rsquo;re going to Sant Cugat del Vall&egrave;s!</h2>
+            <h2 class="text-center-on-sm">You&rsquo;re going to {{trips[0].propertyId.address}}</h2>
             <div class="text-center-on-sm">
               <span>Reservation code:</span>
               <span> </span>
-              <span>8R9696</span>
+              <span>{{bills[0].billingId}}</span>
               <span>. </span>
               <br class="show-sm">
               <span class="hide-print">
 <span>
 <span>
-<a href="#">
+<a href="/receipt/{{trips[0]._id}}">
 <span>View receipt</span>
 </a>
 </span>
@@ -76,7 +76,7 @@
       </section>
       <div class="show-md">
         <div class="hide-print">
-          <img src="../images/1455194520_4832ab2d_original.jpg" class="media-photo media-photo-block img-responsive listing-large-photo">
+          <img src="images\user\583d4d177828aa2f286c396d14804745536290.png" class="media-photo media-photo-block img-responsive listing-large-photo">
         </div>
       </div>
       <div class="row space-8">
@@ -89,14 +89,14 @@
                     <div class="col-sm-6">
                       <strong>Check In</strong>
                       <br>
-                      <span>Tue, May 17</span>
+                      <span>{{trips[0].checkIn| date : "fullDate"}}</span>
                       <br>
                       <span>Flexible check in time</span>
                     </div>
                     <div class="col-sm-6">
                       <strong>Check Out</strong>
                       <br>
-                      <span>Fri, May 20</span>
+                      <span>{{trips[0].checkOut| date : "fullDate"}}</span>
                       <br>
                       <span>Flexible check out time</span>
                     </div>
@@ -106,7 +106,7 @@
                       <strong>Check In</strong>
                     </div>
                     <div class="col-3">
-                      <span>Tue, May 17</span>
+                      <span>{{trips[0].checkIn| date : "fullDate"}}</span>
                       <br>
                       <span>Flexible check in time</span>
                     </div>
@@ -114,7 +114,7 @@
                       <strong>Check Out</strong>
                     </div>
                     <div class="col-3">
-                      <span>Fri, May 20</span>
+                      <span>{{trips[0].checkOut| date : "fullDate"}}</span>
                       <br>
                       <span>Flexible check out time</span>
                     </div>
@@ -127,12 +127,11 @@
                     <strong>Address</strong>
                   </div>
                   <div class="col-9">
-                    <div>Cam&iacute; de Can Borrell<br>Sant Cugat del Vall&egrave;s, Catalunya 08173<br>Spain<br>
+                    <div>{{trips[0].propertyId.address}}<br>{{trips[0].propertyId.city}}<br>{{trips[0].propertyId.country}}<br>{{trips[0].propertyId.zip}}<br>
                     </div>
-                    <a class="hide-print" target="_blank" href="http://google.com/maps/place/Cam&iacute;+de+Can+Borrell+Sant+Cugat+del+Vall&egrave;s,+Catalunya+08173+Spain">Get directions</a>
-                    <span class="mini-divider">
+                    <a class="hide-print" target="_blank" href="http://google.com/maps/place/{{trips[0].propertyId.address}}, {{trips[0].propertyId.city}}, {{trips[0].propertyId.zip}}">Get directions</a>
 </span>
-                    <a href="#">View listing</a>
+
                   </div>
                 </div>
               </div>
@@ -143,21 +142,21 @@
                   </div>
                   <div class="col-3 show-sm">
                     <a class="show-sm" href="#">
-                      <img src="../images/profile_pic_1462134332.jpg" alt="Mick Hans" width="50" height="50" class="media-photo media-round host-photo">
+                      <img src="images/user/{{trips[0].hostId.profileImage}}" alt="Mick Hans" width="50" height="50" class="media-photo media-round host-photo">
                     </a>
                   </div>
                   <div class="col-6">
-                    <span>Mick Hans</span>
+                    <span>{{trips[0].hostId.firstName}}</span>
                     <br>
                     <!-- <div>+91</div> -->
                     <div class="hide-print">
                       <a href="#">Message host</a>
                     </div>
-                    <div class="show-print">mick@gmail.com</div>
+                    <div class="show-print">{{trips[0].hostId.email}}</div>
                   </div>
                   <div class="col-3 hide-sm">
                     <a href="#">
-                      <img src="../images/profile_pic_1462134332.jpg" alt="Mick Hans" width="50" height="50" class="media-photo media-round pull-right">
+                      <img src="images/user/{{trips[0].hostId.profileImage}}" alt="Mick Hans" width="50" height="50" class="media-photo media-round pull-right">
                     </a>
                   </div>
                 </div>
@@ -172,12 +171,12 @@
                       <tbody>
                       <tr>
                         <td class="billing-table-cell">3 nights</td>
-                        <td>&#36;473</td>
+                        <td>&#36;{{trips[0].propertyId.price}}</td>
                       </tr>
                       </tbody>
                     </table>
                     <div class="hide-print">
-                      <a href="#">Detailed receipt</a>
+                      <a href="/receipt/{{trips[0]._id}}">Detailed receipt</a>
                     </div>
                   </div>
                 </div>
@@ -188,7 +187,7 @@
         <div class="col-lg-5">
           <div class="show-lg">
             <div class="hide-print">
-              <img src="../images/1455194520_4832ab2d_original.jpg" class="media-photo media-photo-block img-responsive listing-large-photo">
+              <img src="images\user\583d4d177828aa2f286c396d14804745536290.png" class="media-photo media-photo-block img-responsive listing-large-photo">
             </div>
           </div>
           <section class="space-6">
