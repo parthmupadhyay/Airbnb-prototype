@@ -1,8 +1,6 @@
 
 var bcrypt = require('bcryptjs');
-/*var fecha = require('fecha');*/
-/*var mongo = require("./mongo");
- var config = require('./config.js');*/
+
 var User = require('../model/user');
 var Billing = require('../model/billing');
 var mongoose = require('mongoose');

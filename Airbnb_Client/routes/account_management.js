@@ -1,6 +1,4 @@
-/**
- * Created by shalin on 11/21/2016.
- */
+
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var fecha = require('fecha');

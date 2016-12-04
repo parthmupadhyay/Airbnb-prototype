@@ -1,5 +1,5 @@
 
-/*var fecha = require('fecha');*/
+
 var User = require('../model/user');
 var Property = require('../model/property');
 var Trip=require('../model/trip');

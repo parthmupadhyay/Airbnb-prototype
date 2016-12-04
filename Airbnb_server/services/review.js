@@ -1,11 +1,6 @@
-/**
- * Created by Divya Patel on 11/21/2016.
- */
 
 var bcrypt = require('bcryptjs');
-/*var fecha = require('fecha');*/
-/*var mongo = require("./mongo");
- var config = require('./config.js');*/
+
 
 var userReview = require('../model/userReview');
 var hostReview = require('../model/hostReview');
@@ -17,7 +12,7 @@ exports.loadReviewAboutPage = function (msg, callback) {
 
     var userId = msg.userId;
 
-    //reviews from host
+
     userReview.find({userId: userId}).populate('hostId').exec(function (err, result) {
 
         if (err) {
@@ -26,7 +21,7 @@ exports.loadReviewAboutPage = function (msg, callback) {
             callback(err, null);
         }
         else {
-            //reviews from user
+
             console.log("USER ID");
             console.log(userId);
             hostReview.find({hostId: userId}).populate('userId').exec(function (err, result1) {
@@ -42,7 +37,7 @@ exports.loadReviewAboutPage = function (msg, callback) {
                         "fromHostReview": result,
                         "fromUserReview": result1
                     };
-                    console.log("------------------------------------------------------");
+
                     console.log(json);
                     callback(null, json);
                 }
@@ -78,7 +73,7 @@ exports.loadReviewByPage = function (msg, callback) {
                         "toUserReview": result,
                         "toHostReview": result1
                     };
-                    console.log("------------------------------------------------------");
+
                     console.log(json);
                     callback(null, json);
                 }

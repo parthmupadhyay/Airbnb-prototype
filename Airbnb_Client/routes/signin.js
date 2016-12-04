@@ -1,6 +1,4 @@
-/**
- * http://usejsdoc.org/
- */
+
 var bcrypt = require('bcryptjs');
 var express = require('express');
 

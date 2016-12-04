@@ -1,10 +1,6 @@
-/**
- * Created by Divya Patel on 11/21/2016.
- */
+
 var bcrypt = require('bcryptjs');
-/*var fecha = require('fecha');*/
-/*var mongo = require("./mongo");
- var config = require('./config.js');*/
+
 var User = require('../model/user');
 var mongoose = require('mongoose');
 var Property = require('../model/property');

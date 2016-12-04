@@ -13,7 +13,7 @@
     <meta charset="utf-8">
 
     <!--[if IE 8]>
-    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/common_ie8.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/common_ie8.css">
 
     <![endif]-->
     <!--[if !(IE 8)]><!-->
@@ -33,35 +33,7 @@
     <![endif]-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <link media="all" type="text/css" rel="stylesheet" href="css/payout_preferences.css">
-
-
-
-
-
 
 
     <style type="text/css">
@@ -82,7 +54,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="search" type="application/opensearchdescription+xml" href="#" title="">
+    <!--<link rel="search" type="application/opensearchdescription+xml" href="#" title="">-->
 
     <meta name="mobile-web-app-capable" content="yes">
 
@@ -161,7 +133,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
                                                 <div class="col-sm-9">
-                                                    <div class="row">
+                                                    <div class="row" style="margin-left:1px;">
                                                         <div class="col-xs-3">
                                                             <select class="form-control col-sm-2" ng-model="expMonth" name="expiryMonth" id="expiry-month" required>
                                                                 <option value="01">Jan (01)</option>
@@ -179,8 +151,8 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-xs-3">
-                                                            <select class="form-control col-sm-2" name="expiryYear" ng-model="expYear" required>
-                                                                <option value="16" selected="selected">2016</option>
+                                                            <select class=" col-sm-2" name="expiryYear" ng-model="expYear" required>
+                                                                <option value="16" selected>2016</option>
                                                                 <option value="17">2017</option>
                                                                 <option value="18">2018</option>
                                                                 <option value="19">2019</option>
@@ -354,7 +326,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
+    var APP_URL = "";
     var USER_ID = 10001
     $.datepicker.setDefaults($.datepicker.regional[ "en" ])
 </script>

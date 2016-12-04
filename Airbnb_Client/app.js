@@ -98,7 +98,7 @@ app.post('/acceptTrip', trips.acceptTrip);
 app.get('/profile/*', render.userProfile);
 app.get('/getUserProfile/:userId', users.getUserProfile);
 app.get('/getUserReview/:userId', users.getUserReview);
-app.get('/getHostReview/:hostId', users.getHostReview)
+app.get('/getHostReview/:hostId', users.getHostReview);
 app.get('/becomeHost', render.becomeHost);
 app.get('/editProperty', render.editPropertyPage);
 

@@ -1,5 +1,8 @@
 
 var mq_client = require("../rpc/client.js");
+
+
+
 exports.getUserProfile=function(request,response) {
   var userId = request.params.userId;
   console.log(userId);
@@ -14,6 +17,7 @@ exports.getUserProfile=function(request,response) {
     }
     else
     {
+
       response.send({user:result});
     }
 

@@ -1,9 +1,4 @@
-/**
- * Created by dthes on 11/21/2016.
- */
-/**
- * http://usejsdoc.org/
- */
+
 var express = require('express');
 var fecha = require('fecha');
 var ejs = require("ejs");

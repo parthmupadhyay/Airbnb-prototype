@@ -1,7 +1,3 @@
-/**
- * Created by Divya Patel on 11/21/2016.
- */
-
 
 
 var express = require('express');

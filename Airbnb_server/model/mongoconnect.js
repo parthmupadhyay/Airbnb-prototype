@@ -1,10 +1,8 @@
-/**
- * Created by Divya Patel on 11/6/2016.
- */
+
 var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://airbnb:airbnb@ds035796.mlab.com:35796/airbnb17';
-/*var dbURI = 'mongodb://localhost:27017/airbnb';*/
+
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
 }
@@ -29,19 +27,19 @@ gracefulShutdown = function (msg, callback) {
         callback();
     });
 };
-// For nodemon restarts
+
 process.once('SIGUSR2', function () {
     gracefulShutdown('nodemon restart', function () {
         process.kill(process.pid, 'SIGUSR2');
     });
 });
-// For app termination
+
 process.on('SIGINT', function () {
     gracefulShutdown('app termination', function () {
         process.exit(0);
     });
 });
-// For Heroku app termination
+
 process.on('SIGTERM', function () {
     gracefulShutdown('Heroku app termination', function () {
         process.exit(0);

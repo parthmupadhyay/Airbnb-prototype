@@ -38,12 +38,13 @@ exports.getPropertyRedis = function(req, res){
     if(client.connected) {
 
 
-        client.hget("properties", id, function (err, obj) {
+        client.hget("properties", id, function (err, result) {
            
-            if (obj) {
+            if (result) {
                 console.log("From redis");
-                logger.info(req.session.firstName+" clicked on "+obj.id,{'user':req.session.firstName,'property_clicked':obj.id,'property_type':obj.property_type,property_lang:obj.rooms_address.latitude,property_long:obj.rooms_address.longitude});
-                res.end(obj);
+                obj=JSON.parse(result);
+                logger.info(req.session.firstName+" clicked on "+obj.id,{'user':req.session.firstName,'property_clicked':obj.id,'property_type':obj.property_type,"property_lang":obj.rooms_address.latitude,"property_long":obj.rooms_address.longitude});
+                res.end(result);
             }
             else {
                 getProperty(req, res);
@@ -57,6 +58,9 @@ exports.getPropertyRedis = function(req, res){
 
 
 exports.fetchPropertyRedis = function (req, callback) {
+
+    //not being used
+
     var msg_payload = {
         id: req
     };
