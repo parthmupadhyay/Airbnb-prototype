@@ -90,7 +90,7 @@ exports.tripPage = function(request, response){
 };
 exports.editPropertyPage = function (req, res) {
 
-    var data=getUserData(request);
+    var data=getUserData(req);
     logger.info(data.firstname+" clicked on edit Listing",{'user':data.firstname,'url_clicked':'/editProperty'});
     res.render('editProperty',data);
 };
