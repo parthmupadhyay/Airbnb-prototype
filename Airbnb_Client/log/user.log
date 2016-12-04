@@ -134,3 +134,47 @@
 {"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-04T10:52:34.839Z"}
 {"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-04T10:52:57.102Z"}
 {"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-04T10:53:00.968Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:32:34.141Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:32:37.195Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:32:54.780Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:32:56.880Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:33:21.168Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:33:23.867Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:33:50.061Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T19:33:52.638Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-04T19:33:57.230Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray logged in","timestamp":"2016-12-04T19:34:08.427Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-04T19:34:08.645Z"}
+{"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T19:34:14.283Z"}
+{"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T19:34:16.403Z"}
+{"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T19:34:47.395Z"}
+{"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T19:34:50.263Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:34:52.278Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:34:54.361Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:35:21.519Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:35:23.861Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:35:27.312Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:35:27.710Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:35:36.243Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:38:14.954Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:38:15.505Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:43:21.434Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:43:21.894Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:43:44.102Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:43:44.589Z"}
+{"user":"Maitray","url_clicked":"/userProfile","level":"info","message":"Maitray clicked on profile","timestamp":"2016-12-04T19:45:21.293Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:45:42.005Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-04T19:45:44.341Z"}
+{"user":"Maitray","url_clicked":"/Account_Transactions","level":"info","message":"Maitray clicked on account transactions","timestamp":"2016-12-04T19:45:47.332Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T19:45:51.192Z"}
+{"user":"Maitray","url_clicked":"/Account_Transactions","level":"info","message":"Maitray clicked on account transactions","timestamp":"2016-12-04T19:46:46.229Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T19:46:50.566Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:42:17.449Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:46:25.116Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:46:59.625Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:47:11.947Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:48:22.181Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:49:28.669Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:50:37.509Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:54:12.233Z"}
+{"user":"Maitray","url_clicked":"/Account_Payment_Method","level":"info","message":"Maitray clicked on account security page","timestamp":"2016-12-04T20:55:12.655Z"}

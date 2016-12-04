@@ -56,9 +56,10 @@ exports.updatePaymentMethod = function (msg, callback) {
     var username = msg.email;
     console.log(username);
     console.log(cvv, cnos, edate);
-    User.update({email: username}, {$set: {cardNumber: cnos, cvv: cvv, expDate: edate}}, function (err, result) {
+    User.update({_id: msg.userId}, {$set: {cardNumber: cnos, cvv: cvv, expDate: edate}}, function (err, result) {
         if (err) {
             console.log("err in update");
+            console.log(err);
             callback(err, null);
         }
         if (!result) {

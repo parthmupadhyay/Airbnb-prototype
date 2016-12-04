@@ -83,9 +83,10 @@ exports.updatePaymentMethod = function (req, res, next) {
         cno: cno,
         expm: expm,
         expy: expy,
-        email: req.session.email
+        userId: req.session.userId
     };
 
+    console.log(msg_payload);
     mq_client.make_request('updatePaymentMethod_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
