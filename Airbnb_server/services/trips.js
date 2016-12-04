@@ -51,9 +51,9 @@ exports.acceptTrip = function (msg, callback) {
                 days = Math.floor(days / (1000 * 60 * 60 * 24));
                 if (days < 1) {
                     days = 1;
-                    total = 1 * doc.propertyId.price;
+                    total = 1 * doc.propertyId.price*doc.propertyId.multiplier;
                 } else {
-                    total = days * doc.propertyId.price;
+                    total = days * doc.propertyId.price*doc.propertyId.multiplier;
                 }
                 var bill = new Billing();
                 bill.propertyId = doc.propertyId;

@@ -164,23 +164,33 @@
                                         </div>
                                         <table id="billing-table" class="reso-info-table billing-table">
                                             <tbody>
-
                                             <tr class="base-price">
                                                 <td class="name pos-rel">
-                                                    &#36;{{totalperday}} x {{days}} night
+                                                    &#36;{{totalperday}} x {{multiplier}} per night
                                                     <i id="service-fee-tooltip"
                                                        class="icon icon-question tool-amenity2"></i>
                                                     <div class="tooltip-amenity tooltip-amenity2 tooltip-left-middle"
                                                          data-sticky="true" aria-hidden="true"
                                                          style="left: 132px;top: -13px;">
                                                         <dl class="panel-body">
-                                                            <dt>Average nightly rate is rounded</dt>
+                                                            <dt>Dynamic Pricing Multiplier: {{multiplier}}</dt>
                                                         </dl>
                                                     </div>
                                                 </td>
 
                                                 <td class="val text-right">
-                                                    &#36;{{totalperday * days}}
+                                                    &#36;{{totalperday * multiplier}}
+                                                </td>
+                                            </tr>
+
+                                            <tr class="base-price">
+                                                <td class="name pos-rel">
+                                                    &#36;{{totalperday*multiplier}} x {{days}} night
+
+                                                </td>
+
+                                                <td class="val text-right">
+                                                    &#36;{{totalperday*multiplier * days}}
                                                 </td>
                                             </tr>
 
@@ -203,7 +213,7 @@
                                             <tr class="total">
                                                 <td class="name"><span class="h3">Total</span></td>
                                                 <td class="text-special icon-dark-gray text-right"><span class="h3">&#36;</span>
-                                                    <span class="h3" id="payment_total">{{totalperday * days + 35}}</span>
+                                                    <span class="h3" id="payment_total">{{totalperday *multiplier* days + 35}}</span>
                                                 </td>
                                             </tr>
 

@@ -4,7 +4,7 @@
 var mq_client = require('../rpc/client');
 var cron = require('node-cron');
 
-cron.schedule('*/10 * * * * *', function (req, res, next) {
+cron.schedule('*/600 * * * * *', function (req, res, next) {
     var msg_payload = {};
     mq_client.make_request('dynamicPricingCron_queue', msg_payload, function (err, results) {
         if (err) {

@@ -190,8 +190,14 @@
                                         Nights
                                     </th>
                                     <td class="receipt-amount">
-                                        &#36;<%= (data[0].total) %> ( $<%= data[0].propertyId.price %> Per Night)
+                                        &#36;<%= (data[0].propertyId.price *Math.floor(data[0].total / data[0].propertyId.price)) %> ( $<%= data[0].propertyId.price %> Per Night)
                                     </td>
+                                </tr>
+                                <tr>
+                                    <th class="receipt-label">
+                                        Dynamic Price (<%=data[0].propertyId.multiplier%>X)
+                                    </th>
+                                    <td class="receipt-amount">$<%= (data[0].total)%></td>
                                 </tr>
                                 <tr>
                                     <th class="receipt-label">

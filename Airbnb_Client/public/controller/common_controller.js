@@ -556,6 +556,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.checkin = checkin;
                 $scope.checkout = checkout;
                 $scope.totalperday = totalperday;
+                $scope.multiplier=property.multiplier;
                 $scope.days = days;
             } else {
                 console.log("Error occured to get property data");
@@ -637,7 +638,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
 
                     console.log("SAVED TRIP");
                     console.log(data.data);
-
+                    $window.location.assign('/yourTrips');
 
                 } else {
                     console.log("Error occured to booking");
@@ -1288,6 +1289,11 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
                 $scope.past = data.past;
                 $scope.unapproved = data.unapproved;
                 console.log(data);
+                for(var i=0;i<$scope.unapproved.length;i++)
+                {
+                    $scope.unapproved[i].days=Math.round(($scope.unapproved[i].checkOut-$scope.unapproved[i].checkIn)/(1000*60*60*24));
+                    $scope.unapproved[i].total=Math.round($scope.unapproved[i].days*$scope.unapproved[i].propertyId.price*$scope.unapproved[i].propertyId.multiplier);
+                }
 
             });
     }

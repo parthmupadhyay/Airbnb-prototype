@@ -37,10 +37,10 @@ exports.dynamicPriceCron = function (msg, callback) {
                     priceMap.set(propertyId, result[i].propertyId.price);
                 }
             }
-            console.log(map);
+            //onsole.log(map);
             var propertyIDArray = [];
             var dynamicMultiplierArray = [];
-            console.log("count " + map.count());
+            //console.log("count " + map.count());
             if (map.count() > 0) {
 
                 map.forEach(function (value, key) {
@@ -69,7 +69,7 @@ exports.dynamicPriceCron = function (msg, callback) {
                 });
             }
             var bulk = Property.collection.initializeOrderedBulkOp();
-            console.log(bulk);
+           // console.log(bulk);
             for (var i = 0; i < propertyIDArray.length; i++) {
 
                 console.log("Property id " + propertyIDArray[i] + ": " + dynamicMultiplierArray[i]);
