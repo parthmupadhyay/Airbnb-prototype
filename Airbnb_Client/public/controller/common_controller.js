@@ -840,6 +840,81 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
 
     }
 
+
+    $scope.validateBasicsDiv=function ()
+    {
+        if($scope.bathrooms&&$scope.beds&&$scope.bedrooms)
+        {
+            $scope.selectDescriptionDiv();
+            $scope.basicsIncomplete=false;
+        }
+        else
+        {
+            $scope.basicsIncomplete=true;
+        }
+    }
+
+    $scope.validateDescriptionDiv=function ()
+    {
+        if($scope.name&&$scope.summary)
+        {
+            $scope.selectLocationDiv();
+            $scope.descriptionIncomplete=false;
+        }
+        else
+        {
+            $scope.descriptionIncomplete=true;
+        }
+    }
+
+    $scope.validateLocationDiv=function ()
+    {
+        if($scope.pinCode)
+        {
+            $scope.selectPhotosDiv();
+            $scope.locationIncomplete=false;
+        }
+        else
+        {
+            $scope.locationIncomplete=true;
+        }
+    }
+
+    $scope.validatePricingDiv=function ()
+    {
+        if($scope.base_price)
+        {
+            $scope.pricingIncomplete=false;
+        }
+        else
+        {
+            $scope.pricingIncomplete=true;
+        }
+        if($scope.bidding==true)
+        {
+            if($scope.startDate&&$scope.endDate)
+            {
+                $scope.biddingIncomplete=false;
+            }
+            else
+            {
+                $scope.biddingIncomplete=true;
+            }
+        }
+        else
+        {
+            $scope.biddingIncomplete=false;
+        }
+        if($scope.pricingIncomplete==false&&$scope.locationIncomplete==false&&$scope.descriptionIncomplete==false&&$scope.basicsIncomplete==false&&$scope.biddingIncomplete==false)
+        {
+            $scope.addNewListing();
+        }
+        else
+        {
+            $scope.finalSteps=true;
+        }
+    }
+
     $scope.loadPhotos = function () {
         console.log($scope.photosList);
         $scope.photoP = false;
