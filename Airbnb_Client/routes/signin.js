@@ -7,6 +7,7 @@ var express = require('express');
 var ejs = require("ejs");
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
+var logger=require("../routes/usertracking");
 /*var log = require("./log");*/
 /*
  var mongo = require("./mongo");
@@ -58,6 +59,7 @@ exports.authenticateUser = function (req, res, next) {
 
         if (user) {
 
+            logger.info(user.firstName+" logged in",{'user':user.firstName,'url_clicked':'/'});
             sess.email =user.email;
             sess.isLoggedIn = true;
             sess.userSSN=user.userId;

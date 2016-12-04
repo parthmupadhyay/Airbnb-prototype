@@ -1,0 +1,14 @@
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T05:05:33.530Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:07:44.431Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:07:44.986Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T05:08:18.454Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T05:08:26.444Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T05:08:30.305Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T05:26:59.731Z"}
+{"user":"Karan","property_clicked":"58427ba6c4b9db0dc8575bfa","property_type":"Apartment","property_lang":"37.3737292","property_long":"-121.93239370000003","level":"info","message":"Karan clicked on 58427ba6c4b9db0dc8575bfa","timestamp":"2016-12-04T05:27:17.841Z"}
+{"user":"Karan","property_clicked":"5840f224c0bc0b355c3cc478","property_type":"Apartment","property_lang":"37.352906","property_long":"-121.96325100000001","level":"info","message":"Karan clicked on 5840f224c0bc0b355c3cc478","timestamp":"2016-12-04T05:30:53.428Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:31:05.688Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:31:06.149Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:31:45.933Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:31:46.300Z"}
+{"user":"Karan","url_clicked":"/userProfile","level":"info","message":"Karan clicked on profile","timestamp":"2016-12-04T05:32:41.978Z"}

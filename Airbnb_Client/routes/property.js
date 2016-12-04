@@ -5,11 +5,7 @@ var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
 var redis = require('redis');
 var client = redis.createClient();
-/*var log = require("./log");*/
-/*
- var mongo = require("./mongo");
- var config = require('./config.js');
- */
+var logger=require('../routes/usertracking');
 
 client.on('ready', function () {
 
@@ -46,6 +42,7 @@ exports.getPropertyRedis = function(req, res){
            
             if (obj) {
                 console.log("From redis");
+                logger.info(req.session.firstName+" clicked on "+obj.id,{'user':req.session.firstName,'property_clicked':obj.id,'property_type':obj.property_type,property_lang:obj.rooms_address.latitude,property_long:obj.rooms_address.longitude});
                 res.end(obj);
             }
             else {
@@ -95,6 +92,8 @@ function getProperty (req, res) {
             console.log("From mongoose");
             client.hmset("properties", result.id, JSON.stringify(result), redis.print);
             // var json_responses = {"statusCode": 200, "data": result};
+            logger.info(req.session.firstName+" clicked on "+result.id,{'user':req.session.firstName,'property_clicked':result.id,'property_type':result.property_type,property_lang:result.rooms_address.latitude,property_long:result.rooms_address.longitude});
+
             res.send(result);
             res.end();
 

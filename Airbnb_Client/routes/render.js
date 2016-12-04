@@ -1,6 +1,7 @@
 /**
  * Created by Parth on 27-11-2016.
  */
+var logger=require('./usertracking');
 
 function getUserData(request)
 {
@@ -25,27 +26,34 @@ function getUserData(request)
 
 exports.renderHomePage = function(req,res){
 
-    res.render('homewithoutlogin',getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on home",{'user':data.firstname,'url_clicked':'/'});
+    res.render('homewithoutlogin',data);
+
 
 };
 
 exports.renderProfilePhotoPage = function(req,res){
 
-    res.render('profile_photo_tab',getUserData(req));
-
-};
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on profilePhotoPage",{'user':data.firstname,'url_clicked':'/getUserPhotoPage'});
+    res.render('profile_photo_tab',data);
+   };
 
 
 exports.addListing = function(request, response){
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on addListing",{'user':data.firstname,'url_clicked':'/addListing'});
 
-
-    response.render("becomehostDescription",getUserData(request));
+    response.render("becomehostDescription",data);
 
 };
 
 exports.becomeHost = function(request, response){
 
-    response.render("becomeHostMainPage",getUserData(request));
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on becomeHost",{'user':data.firstname,'url_clicked':'/becomeHost'});
+    response.render("becomeHostMainPage",data);
 
 };
 
@@ -75,12 +83,16 @@ exports.footer = function(request,response){
 
 exports.tripPage = function(request, response){
 
-    response.render("profile_yourTrips",getUserData(request));
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on your trips",{'user':data.firstname,'url_clicked':'/yourTrips'});
+    response.render("profile_yourTrips",data);
 
 };
 exports.editPropertyPage = function (req, res) {
 
-    res.render('editProperty',getUserData(req));
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on edit Listing",{'user':data.firstname,'url_clicked':'/editProperty'});
+    res.render('editProperty',data);
 };
 exports.addProperty = function(request, response){
 
@@ -88,8 +100,10 @@ exports.addProperty = function(request, response){
 };
 
 exports.yourListings = function(request, response){
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on user listing",{'user':data.firstname,'url_clicked':'/yourListings'});
 
-    response.render("profile_activeListings",getUserData(request));
+    response.render("profile_activeListings",data);
 };
 
 exports.test = function(request, response){
@@ -101,35 +115,44 @@ exports.test = function(request, response){
 
 exports.itinerary = function(request, response){
 
-
-    response.render("viewitinerary",getUserData(request));
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on itinerary",{'user':data.firstname,'url_clicked':'/itinerary'});
+    response.render("viewitinerary",data);
 };
 
 exports.userProfile=function(request,response) {
-    response.render("user_profile", getUserData(request));
+    var data=getUserData(request);
+    logger.info(data.firstname+" clicked on profile",{'user':data.firstname,'url_clicked':'/userProfile'});
+    response.render("user_profile", data);
 };
 
 exports.getEditProfilePage = function (req, res) {
-
-    res.render('profile_edit_profile',getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on editProfile",{'user':data.firstname,'url_clicked':'/editProfilePage'});
+    res.render('profile_edit_profile',data);
 };
 
 exports.accountPage = function (req, res, next) {
 
-    res.render('Account_Transactions', getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on account transactions",{'user':data.firstname,'url_clicked':'/Account_Transactions'});
+    res.render('Account_Transactions', data);
 };
 
 exports.accountSecurityPage = function (req, res, next) {
-
-    res.render('Account_Security', getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on account security page",{'user':data.firstname,'url_clicked':'/Account_Security'});
+    res.render('Account_Security', data);
 };
 
 exports.accountPaymentMethodPage = function (req, res, next) {
-
-    res.render('Account_Payment_Method', getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on account security page",{'user':data.firstname,'url_clicked':'/Account_Payment_Method'});
+    res.render('Account_Payment_Method', data);
 };
 
 exports.paymentPage = function (req, res, next) {
-
-    res.render('paymentpage', getUserData(req));
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on account security page",{'user':data.firstname,'url_clicked':'/paymentpage'});
+    res.render('paymentpage', data);
 };

@@ -2,7 +2,7 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
-
+var logger=require("../routes/usertracking");
 
 exports.updateBasePrice = function (req, res, next) {
     var propertyId = req.param("propertyId");
@@ -23,6 +23,7 @@ exports.updateBasePrice = function (req, res, next) {
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
         } else {
+            logger.info(request.session.firstName +" bidded for property"+propertyId,{'user':request.session.firstName,'property_bid':propertyId,'bid_price':maxBidPrice});
             res.send(result);
 
         }
