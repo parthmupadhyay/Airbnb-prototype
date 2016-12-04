@@ -32,6 +32,14 @@ exports.loadDetailPg = function (req, res) {
     res.render('detail',user_data);
 };
 
+
+exports.mongooseProperty = function(req, res){
+
+    var id = req.param("propertyId");
+    getProperty(req, res);
+
+};
+
 exports.getPropertyRedis = function(req, res){
 
     var id = req.param("propertyId");
