@@ -156,3 +156,8 @@ exports.paymentPage = function (req, res, next) {
     logger.info(data.firstname+" clicked on account security page",{'user':data.firstname,'url_clicked':'/paymentpage'});
     res.render('paymentpage', data);
 };
+
+exports.pageNotFound = function(req, res){
+    var data = getUserData(req);
+    res.render('404', data);
+};

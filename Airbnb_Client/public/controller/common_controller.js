@@ -407,6 +407,10 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     $http.get(url).then(function (response) {
 
         console.log(response);
+
+        if(!response.data)
+            $window.location.assign('/404');
+
         $scope.room_result = response.data;
         if ($scope.room_result.maxBidPrice) {
             $scope.room_result.night = $scope.room_result.maxBidPrice;
@@ -1196,10 +1200,16 @@ app.controller('profile_controller', function ($scope, $http, $window) {
             url: '/getUserProfile/' + userSSN
         })
             .success(function (data) {
-                $scope.user = data.user;
-                $scope.getUserReview($scope.user._id);
-                $scope.getHostReview($scope.user._id);
-                $scope.getProperties($scope.user._id);
+
+
+                if(data.user) {
+                    $scope.user = data.user;
+                    $scope.getUserReview($scope.user._id);
+                    $scope.getHostReview($scope.user._id);
+                    $scope.getProperties($scope.user._id);
+                } else {
+                    $window.location.assign('/404');
+                }
 
             });
 

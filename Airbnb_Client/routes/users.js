@@ -1,8 +1,5 @@
 
 var mq_client = require("../rpc/client.js");
-
-
-
 exports.getUserProfile=function(request,response) {
   var userId = request.params.userId;
   console.log(userId);
@@ -17,7 +14,7 @@ exports.getUserProfile=function(request,response) {
     }
     else
     {
-
+      console.log(result);
       response.send({user:result});
     }
 
@@ -30,7 +27,7 @@ exports.getUserReview=function(request,response)
   var msg_payload =
   {
     userId: userId
-  };
+  }
   mq_client.make_request('getUserReview_queue', msg_payload, function (err, result) {
 
     if (err) {
@@ -76,8 +73,6 @@ exports.addUserReview=function(request,response)
     image:request.body.image,
     createdDate:Date.now()
   }
-
-  console.log(msg_payload);
 
   mq_client.make_request('addUserReview_queue', msg_payload, function (err, result) {
 

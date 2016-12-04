@@ -35,7 +35,11 @@ exports.loadDetailPg = function (req, res) {
 exports.getPropertyRedis = function(req, res){
 
     var id = req.param("propertyId");
-    if(client.connected) {
+
+    if(id.length > 24)
+        res.end();
+
+    else if(client.connected) {
 
 
         client.hget("properties", id, function (err, result) {
@@ -88,6 +92,7 @@ function getProperty (req, res) {
 
     mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
         if (err) {
+            console.log("From mongoose");
             console.log(err);
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
