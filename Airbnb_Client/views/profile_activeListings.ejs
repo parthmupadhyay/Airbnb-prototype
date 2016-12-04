@@ -318,7 +318,7 @@
                                 <td>
                                     <span ng-bind="(reservation.checkIn | date:'shortDate') + ' to ' + (reservation.checkOut | date:'shortDate')"></span>
                                     <br>
-                                    <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
+                                    <a locale="en" href="/property?propertyId={{reservation.propertyId._id}}" ng-bind="reservation.propertyId.name"></a>
                                     <br>
                                     <span ng-bind="reservation.propertyId.address"></span>
 
@@ -328,33 +328,35 @@
                                 </td>
                                 <td>
                                     <div class="media va-container">
-                                        <a class="pull-left media-photo media-round" href="">
-                                            <img width="50" height="50" title="John" src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        <a class="pull-left media-photo media-round" href="/profile/{{reservation.userId.userId}}">
+                                            <img width="50" height="50" title="{{reservation.userId.firstName}}" src="../images/user/{{reservation.userId.profileImage}}" alt="{{reservation.userId.firstName}}">
                                         </a>      <div class="va-top">
-                                            <a class="text-normal" href="" ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
+                                            <a class="text-normal" href="/profile/{{reservation.userId.userId}}" ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
                                             <br>
-                                            <a href="#" class="text-normal">
+                                            <a href="mailto:{{reservation.userId.email}}" class="text-normal">
                                                 <i class="icon icon-envelope"></i>
-                                                Send Message
-                                            </a>
-                                            <br>
-                                            <a href="mailto:john@gmail.com">
                                                 Contact by Email
                                             </a>
-                                            <i class="icon icon-question" id="anonymous-email-118017996-tooltip-trigger"></i>
-                                            <br>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <a href="#">Message History</a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank" href="#">Print Confirmation</a>
-                                        </li>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                $ {{reservation.propertyId.price}} per night
+                                            </li>
+                                            <li>
+                                                Multiplier : {{reservation.propertyId.multiplier}}
+                                            </li>
+                                            <li>
+                                                Days : {{reservation.days}}
+                                            </li>
+                                            <li>
+                                                <strong>Total : $ {{reservation.total}}</strong>
+                                            </li>
+
+                                        </ul>
                                     </ul>
 
                                 </td>

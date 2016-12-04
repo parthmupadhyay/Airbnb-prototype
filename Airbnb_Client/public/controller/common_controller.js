@@ -1294,6 +1294,11 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
                     $scope.unapproved[i].days=Math.round(($scope.unapproved[i].checkOut-$scope.unapproved[i].checkIn)/(1000*60*60*24));
                     $scope.unapproved[i].total=Math.round($scope.unapproved[i].days*$scope.unapproved[i].propertyId.price*$scope.unapproved[i].propertyId.multiplier);
                 }
+                for(var i=0;i<$scope.upcoming.length;i++)
+                {
+                    $scope.upcoming[i].days=Math.round(($scope.upcoming[i].checkOut-$scope.upcoming[i].checkIn)/(1000*60*60*24));
+                    $scope.upcoming[i].total=Math.round($scope.upcoming[i].days*$scope.upcoming[i].propertyId.price*$scope.upcoming[i].propertyId.multiplier);
+                }
 
             });
     }
