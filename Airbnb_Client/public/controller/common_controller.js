@@ -66,6 +66,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
     $scope.rockerSa = false;
     $scope.rockerSb = true;
     $scope.rockerSo = false;
+
     $scope.check = function () {
         if ($scope.new_password != $scope.cpassword) {
             $scope.rockerSa = true;
@@ -131,6 +132,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
             if (result == "OK") {
                 console.log("ok result");
                 $scope.alert2 = true;
+                console.log($scope.alert2);
             }
         }).error(function (err) {
             console.log(err);

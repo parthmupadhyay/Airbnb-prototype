@@ -58,12 +58,10 @@
     <div class="subnav hide-print">
         <div class="page-container-responsive">
             <ul class="subnav-list">
-                <li>
+                <li ng-if="<%=isHost%>">
                     <a href="" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
-                <li>
-                    <a href="" aria-selected="false" class="subnav-item">Inbox</a>
-                </li>
+
                 <li>
                     <a href="/yourListings" aria-selected="true" class="subnav-item">Your Listings</a>
                 </li>
