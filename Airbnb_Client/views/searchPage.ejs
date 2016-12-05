@@ -1085,7 +1085,7 @@
                          data-room_id="{{ rooms.id }}"
                          data-img=/images/user/{{rooms.images[0]}}"
                          data-name="{{ rooms.name }}" data-address="{{ rooms.rooms_address.city }}"
-                         data-price="{{ rooms.rooms_price.currency.symbol }}{{ rooms.rooms_price.night }}"
+                         data-price="{{ rooms.rooms_price.currency.symbol }} {{ rooms.rooms_price.night }}"
                          data-review_count="" data-host_img="{{ rooms.users.profile_picture.src }}" data-star_rating=""
                          data-summary="{{ rooms.summary }}" data-room_type="{{ rooms.room_type_name }}"
                          data-property_type_name="{{ rooms.property_type_name }}" data-person_capacity_string=""
@@ -1099,10 +1099,10 @@
 
                                     <div class="panel-body panel-card-section">
                                         <div class="media">
-                                            <a href="/profile?hostId={{rooms.id}}"
+                                            <a href="/profile/{{rooms.users.userSSN}}"
                                                class="media-photo-badge pull-right card-profile-picture card-profile-picture-offset">
                                                 <div class="media-photo media-round">
-                                                    <img src="{{ rooms.users.profile_picture.src }}" alt="">
+                                                    <img src="/images/user/{{ rooms.users.profile_picture.src }}" alt="">
                                                 </div>
                                             </a>
                                             <a href="/property?propertyId={{rooms.id}}&checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}&room_type={{room_type}}" target="listing_{{ rooms.id }}"
