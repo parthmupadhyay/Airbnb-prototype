@@ -1,4 +1,5 @@
-
+var path = require('path');
+var imageFolder = path.join(__dirname, '../public/images/user/');
 var mq_client = require("../rpc/client.js");
 exports.getUserProfile=function(request,response) {
   var userId = request.params.userId;
@@ -64,13 +65,14 @@ exports.getHostReview=function(request,response)
 
 exports.addUserReview=function(request,response)
 {
+  var imageUrl=saveMedia(request.body.photosList,request.session.userId);
   var msg_payload=
   {
     userId:request.body.userId,
     hostId:request.session.userId,
     review:request.body.review,
     rating:request.body.rating,
-    image:request.body.image,
+    image:imageUrl,
     createdDate:Date.now()
   }
 
@@ -92,13 +94,14 @@ exports.addUserReview=function(request,response)
 
 exports.addHostReview=function(request,response)
 {
+  var imageUrls=saveMedia(request.body.photosList,request.session.userId);
   var msg_payload=
   {
     userId:request.session.userId,
     hostId:request.body.hostId,
     review:request.body.review,
     rating:request.body.rating,
-    imageUrl:request.body.image,
+    imageUrl:imageUrls,
     createdDate:Date.now()
   }
 
@@ -163,4 +166,23 @@ exports.deactivateUser=function(request,response)
     }
 
   });
+}
+
+function saveMedia(Media,userId)
+{
+  var mediaUrls=[];
+  for(var i=0;i<Media.length;i++)
+  {
+    var base64Data = Media[i].replace(/^data:image\/jpeg;base64,/, "");
+    var fileName=userId+Date.now()+i+".png";
+    mediaUrls.push(fileName);
+    require("fs").writeFile(imageFolder +fileName, base64Data, 'base64', function(err) {
+      console.log(err);
+
+    });
+
+
+  }
+  console.log(mediaUrls);
+  return mediaUrls;
 }

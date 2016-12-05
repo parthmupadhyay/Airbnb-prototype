@@ -416,12 +416,17 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         $scope.room_result = response.data;
         if ($scope.room_result.maxBidPrice) {
             $scope.room_result.night = $scope.room_result.maxBidPrice;
-        }
 
+        }
+        $scope.nightPrice=Math.round($scope.room_result.rooms_price.night*$scope.room_result.rooms_price.multiplier);
         $scope.videoUrl = "images/user/" + $scope.room_result.video_url;
         url = "/getHostReview/" + $scope.room_result.users.id;
+        console.log(url);
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data.hostReview;
+            console.log("host review");
+
+            console.log($scope.hostReviews);
         });
     });
 
@@ -564,6 +569,8 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.totalperday = totalperday;
                 $scope.multiplier=property.multiplier;
                 $scope.days = days;
+                $scope.totalwoTax=Math.round($scope.totalperday*$scope.multiplier*$scope.days);
+                $scope.totalCost= Math.round($scope.totalperday*$scope.multiplier*$scope.days)+35;
             } else {
                 console.log("Error occured to get property data");
             }
@@ -1312,6 +1319,7 @@ app.controller('profile_controller', function ($scope, $http, $window) {
                 .success(function (data) {
                     // console.log(data);
                     $scope.hostReviews = data.hostReview;
+                    console.log($scope.hostReviews);
                     $scope.numberOfHostReviews = $scope.hostReviews.length;
                     $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfHostReviews;
                 });
@@ -1452,7 +1460,7 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
         $scope.writeReview = !$scope.writeReview;
     };
 
-    $scope.submitReview = function (review, userId, rating, image) {
+    $scope.submitReview = function (review, userId, rating, photosList) {
 
 
         if (!review) {
@@ -1466,16 +1474,18 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
         $http({
             method: 'POST',
             url: '/addUserReview',
-            data: {"userId": reviewid, "review": review, "rating": rating, "image": image}
+            data: {"userId": reviewid, "review": review, "rating": rating, "photosList": photosList}
         })
             .success(function (data) {
                 console.log(data);
+                alert("Review added");
+                $window.location.assign('/yourListings');
             })
     };
 
 });
 
-app.controller('yourTrips_controller', function ($scope, $http, $sce) {
+app.controller('yourTrips_controller', function ($scope, $http, $sce,$window) {
 
     $scope.isItinerary = false;
     $scope.toggle = [];
@@ -1510,7 +1520,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         $scope.writeReview = !$scope.writeReview;
     };
 
-    $scope.submitReview = function (review, userId, rating, image) {
+    $scope.submitReview = function (review, userId, rating, photosList) {
 
 
         if (!review) {
@@ -1523,10 +1533,12 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         $http({
             method: 'POST',
             url: '/addHostReview',
-            data: {"hostId": userId, "review": review, "rating": rating, "image": image}
+            data: {"hostId": userId, "review": review, "rating": rating, "photosList": photosList}
         })
             .success(function (data) {
                 console.log(data);
+                alert("Review added");
+                $window.location.assign('/yourTrips');
             })
     };
 
