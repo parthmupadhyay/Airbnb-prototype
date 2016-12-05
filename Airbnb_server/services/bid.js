@@ -21,7 +21,7 @@ exports.updateBasePrice = function (msg, callback) {
         }
     }, function (err, result) {
         if (err) {
-            console.log("err in update");
+            console.log("err in update",err);
             callback(err, null);
         }
         if (!result) {

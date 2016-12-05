@@ -2,7 +2,8 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
-var logger=require("../routes/usertracking");
+var logger=require("./usertracking");
+var biddingLogger=require("./biddingLogger");
 
 exports.updateBasePrice = function (req, res, next) {
     var propertyId = req.param("propertyId");
@@ -16,15 +17,23 @@ exports.updateBasePrice = function (req, res, next) {
         hostId: hostId,
         latestBidder: latestBidder
     };
-
+console.log("Msg_paylooad",msg_payload);
     mq_client.make_request('updateBasePrice_queue', msg_payload, function (err, result) {
         if (err) {
             console.log(err);
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
-        } else {
-            logger.info(request.session.firstName +" bidded for property"+propertyId,{'user':request.session.firstName,'property_bid':propertyId,'bid_price':maxBidPrice});
-            res.send(result);
+        } else
+        {
+            try {
+            biddingLogger.info(req.session.firstName +" bidded for property"+propertyId,{'user':req.session.firstName,'property_bid':propertyId,'bid_price':maxBidPrice});
+            logger.info(req.session.firstName +" bidded for property"+propertyId,{'user':req.session.firstName,'property_bid':propertyId,'bid_price':maxBidPrice});
+            }
+            catch (err)
+            {
+                console.log(err);
+            }
+            res.send({statusCode:200});
 
         }
     });

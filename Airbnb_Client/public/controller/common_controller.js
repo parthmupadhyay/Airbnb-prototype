@@ -418,7 +418,18 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
             $scope.room_result.night = $scope.room_result.maxBidPrice;
 
         }
+
         $scope.nightPrice=Math.round($scope.room_result.rooms_price.night*$scope.room_result.rooms_price.multiplier);
+        if($scope.room_result.isBidding)
+        {
+            $scope.nightPrice=Math.round($scope.room_result.rooms_price.maxBidPrice*$scope.room_result.rooms_price.multiplier);
+        }
+        else
+        {
+            console.log($scope.room_result.isBidding);
+            $scope.nightPrice=Math.round($scope.room_result.rooms_price.night*$scope.room_result.rooms_price.multiplier);
+
+        }
         $scope.videoUrl = "images/user/" + $scope.room_result.video_url;
         url = "/getHostReview/" + $scope.room_result.users.id;
         console.log(url);
@@ -451,19 +462,19 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         $window.location.assign("/editProperty?propertyId=" + propId);
     }
 
-    $scope.placeBid = function () {
+    $scope.placeBid = function (bidAmount) {
         $http
         ({
             method: 'POST',
             url: '/updateBasePrice',
             data: {
                 "propertyId": $scope.room_result.rooms_address.room_id,
-                "maxBidPrice": $scope.bidAmount,
+                "maxBidPrice": bidAmount,
                 "hostId": $scope.room_result.users.profile_picture.user_id
             }
         }).success(function (data) {
             if (data.statusCode == 200) {
-                $scope.room_result.rooms_price.night = $scope.bidAmount;
+                $window.location.assign('/property?propertyId='+ $scope.room_result.rooms_address.room_id);
             }
         });
     };
