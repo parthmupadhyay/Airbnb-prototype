@@ -40,6 +40,7 @@ exports.mongooseProperty = function(req, res){
 
 };
 
+
 exports.getPropertyRedis = function(req, res){
 
     var id = req.param("propertyId");

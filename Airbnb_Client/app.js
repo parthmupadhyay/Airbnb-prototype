@@ -118,7 +118,7 @@ app.get('/itinerary', render.itinerary);
 app.get('/addListing', render.addListing);
 app.post('/addNewListing', listings.addNewListing);
 app.get('/removeListing/:propertyId',listings.removeListing);
-app.get('/test', property.mongooseProperty);
+
 app.post('/addUserReview', users.addUserReview);
 app.post('/addHostReview', users.addHostReview);
 
@@ -129,6 +129,10 @@ app.post('/uploadProfileImage', account.uploadProfileImage);
 app.post('/loadProfilePhotoPage', account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
 app.get('/cardDetails', account_management.cardDetails);
+
+
+app.get('/mongooseProperty', property.mongooseProperty);
+
 
 app.post('/updateBasePrice', bid.updateBasePrice);
 
