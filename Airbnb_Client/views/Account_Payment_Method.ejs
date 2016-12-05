@@ -102,6 +102,13 @@
                     <li>
                         <a href="/Account_Security" aria-selected="false" class="sidenav-item">Security</a>
                     </li>
+                    <li ng-if="<%=isHost%>">
+                        <a href="/deactivateHost" aria-selected="false" class="sidenav-item">Deactivate Host Account</a>
+                    </li>
+                    <li ng-if="!<%=isHost%>">
+                        <a href="/deactivateUser" aria-selected="false" class="sidenav-item">Deactivate User Account</a>
+                    </li>
+
                 </ul>
             </div>
             <div class="col-md-9">

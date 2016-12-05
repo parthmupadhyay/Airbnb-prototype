@@ -101,7 +101,10 @@ app.get('/getUserReview/:userId', users.getUserReview);
 app.get('/getHostReview/:hostId', users.getHostReview);
 app.get('/becomeHost', render.becomeHost);
 app.get('/editProperty', render.editPropertyPage);
-
+app.get('/deactivateHost',render.deactivateHost);
+app.post('/deactivateHost',users.deactivateHost);
+app.get('/deactivateUser',render.deactivateUser);
+app.post('/deactivateUser',users.deactivateUser);
 app.get('/getPaymentPage', render.paymentPage);
 app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);

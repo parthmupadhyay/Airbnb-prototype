@@ -157,6 +157,18 @@ exports.paymentPage = function (req, res, next) {
     res.render('paymentpage', data);
 };
 
+exports.deactivateHost = function (req, res, next) {
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on deactivateHost",{'user':data.firstname,'url_clicked':'/deactivateHost'});
+    res.render('deactivateHost', data);
+};
+
+exports.deactivateUser = function (req, res, next) {
+    var data=getUserData(req);
+    logger.info(data.firstname+" clicked on deactivateUser",{'user':data.firstname,'url_clicked':'/deactivateUser'});
+    res.render('deactivateUser', data);
+};
+
 exports.pageNotFound = function(req, res){
     var data = getUserData(req);
     res.render('404', data);

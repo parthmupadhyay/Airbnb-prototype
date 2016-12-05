@@ -57,6 +57,14 @@ exports.authenticateUser = function (req, res, next) {
 
         if (user) {
 
+            if(user.isActivated==false)
+            {
+                res.json({
+                    success: false,
+                    message: 'No user found'
+                });
+                res.end();
+            }
             logger.info(user.firstName+" logged in",{'user':user.firstName,'url_clicked':'/'});
             sess.email =user.email;
             sess.isLoggedIn = true;

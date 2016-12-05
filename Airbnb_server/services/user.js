@@ -119,3 +119,36 @@ exports.updateUsertoHost=function(msg,callback)
     });
 
 }
+
+exports.deactivateHost=function (msg,callback)
+{
+    console.log("Deactivate Host");
+    console.log(msg);
+    User.findByIdAndUpdate(msg.userId, { isHost: false ,isApproved:false}, function(err, user) {
+        if (err)
+            callback(err,null);
+
+        else
+        {
+            console.log("Inside Deactivate host request");
+            console.log(user);
+            callback(null,user);
+        }
+    });
+}
+
+exports.deactivateUser=function (msg,callback)
+{
+    console.log("Deactivate user");
+    User.findByIdAndUpdate(msg.userId, {isActivated:false}, function(err, user) {
+        if (err)
+            callback(err,null);
+
+        else
+        {
+            console.log("Inside Deactivate user request");
+            console.log(user);
+            callback(null,user);
+        }
+    });
+}

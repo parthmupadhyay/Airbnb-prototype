@@ -116,3 +116,51 @@ exports.addHostReview=function(request,response)
 
   });
 }
+
+exports.deactivateHost=function(request,response)
+{
+  var userId=request.session.userId;
+  var msg_payload=
+  {
+    userId:userId
+  }
+
+  mq_client.make_request('deactivateHost_queue', msg_payload, function (err, result) {
+
+    if (err)
+    {
+      console.log(err);
+      response.send({statusCode:401});
+    }
+    else
+    {
+      request.session.destroy();
+      response.send({statusCode:200});
+    }
+
+  });
+}
+
+exports.deactivateUser=function(request,response)
+{
+  var userId=request.session.userId;
+  var msg_payload=
+  {
+    userId:userId
+  }
+
+  mq_client.make_request('deactivateUser_queue', msg_payload, function (err, result) {
+
+    if (err)
+    {
+      console.log(err);
+      response.send({statusCode:401});
+    }
+    else
+    {
+      request.session.destroy();
+      response.send({statusCode:200});
+    }
+
+  });
+}

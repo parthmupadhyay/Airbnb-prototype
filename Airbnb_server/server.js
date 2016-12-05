@@ -638,4 +638,30 @@ cnn.on('ready', function () {
             });
         });
     });
+
+    cnn.queue('deactivateHost_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            user.deactivateHost(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('deactivateUser_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            user.deactivateUser(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
 });

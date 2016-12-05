@@ -75,7 +75,7 @@
     <div class="subnav hide-print">
         <div class="page-container-responsive">
             <ul class="subnav-list">
-                <li>
+                <li ng-if="<%=isHost%>">
                     <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
@@ -113,6 +113,12 @@
 
                     <li>
                         <a href="/Account_Security" aria-selected="false" class="sidenav-item">Security</a>
+                    </li>
+                    <li ng-if="<%=isHost%>">
+                        <a href="/deactivateHost" aria-selected="false" class="sidenav-item">Deactivate Host Account</a>
+                    </li>
+                    <li ng-if="!<%=isHost%>">
+                        <a href="/deactivateUser" aria-selected="false" class="sidenav-item">Deactivate User Account</a>
                     </li>
 
 

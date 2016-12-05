@@ -257,3 +257,83 @@
 {"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T22:46:53.002Z"}
 {"user":"Maitray","url_clicked":"/yourListings","level":"info","message":"Maitray clicked on user listing","timestamp":"2016-12-04T22:46:56.217Z"}
 {"user":"Maitray","property_clicked":"58449cdc05031a20a4d780b6","property_type":"Apartment","property_lang":"37.3556035","property_long":"-121.91437639999998","level":"info","message":"Maitray clicked on 58449cdc05031a20a4d780b6","timestamp":"2016-12-04T22:47:08.417Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-04T23:49:42.068Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-04T23:49:46.589Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-04T23:50:15.605Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T23:50:15.885Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-04T23:50:18.014Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T23:50:24.314Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:50:31.359Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:50:34.534Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T23:51:07.453Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:51:10.167Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:53:20.697Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T23:54:15.288Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T23:55:49.404Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:56:31.858Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-04T23:58:16.507Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:58:19.524Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-04T23:58:23.178Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:04:30.667Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:05:27.586Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:05:38.677Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:05:54.090Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:05:57.730Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:07:02.411Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:07:06.438Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:07:49.712Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:08:19.902Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:09:14.217Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:09:20.132Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:09:24.834Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:09:46.062Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:10:24.395Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:10:45.734Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:10:56.805Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:11:09.607Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:11:19.299Z"}
+{"user":"Karan","url_clicked":"/Account_Security","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:11:25.996Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:11:29.100Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:11:51.072Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:13:58.751Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:14:40.971Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-05T00:36:58.802Z"}
+{"user":"Karan","url_clicked":"/Account_Payment_Method","level":"info","message":"Karan clicked on account security page","timestamp":"2016-12-05T00:37:05.231Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:37:14.782Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:37:49.355Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:38:10.950Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:38:21.858Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:38:24.162Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:38:33.339Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:38:33.584Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:38:35.835Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-05T00:39:03.873Z"}
+{"user":"Karan","url_clicked":"/deactivateHost","level":"info","message":"Karan clicked on deactivateHost","timestamp":"2016-12-05T00:39:08.196Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:41:52.504Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:41:54.403Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:42:01.753Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:42:02.007Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:42:05.954Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-05T00:42:18.512Z"}
+{"user":"Karan","url_clicked":"/deactivateUser","level":"info","message":"Karan clicked on deactivateUser","timestamp":"2016-12-05T00:42:22.329Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:42:31.578Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:42:33.559Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:42:42.191Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:42:42.551Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:42:44.445Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-05T00:44:12.816Z"}
+{"user":"Karan","url_clicked":"/deactivateUser","level":"info","message":"Karan clicked on deactivateUser","timestamp":"2016-12-05T00:44:18.231Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:44:23.239Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:44:25.363Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:45:05.995Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:45:06.228Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:45:08.027Z"}
+{"user":"Karan","url_clicked":"/Account_Transactions","level":"info","message":"Karan clicked on account transactions","timestamp":"2016-12-05T00:45:10.148Z"}
+{"user":"Karan","url_clicked":"/deactivateUser","level":"info","message":"Karan clicked on deactivateUser","timestamp":"2016-12-05T00:45:13.690Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:45:18.202Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:45:21.037Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:45:40.715Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:45:41.020Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T00:45:43.072Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T00:48:34.837Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T00:48:48.525Z"}
