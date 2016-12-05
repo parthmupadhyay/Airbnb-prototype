@@ -680,7 +680,7 @@
 
                                 <div class="row-space-1">
                                     <label for="postal_code">ZIP / Postal Code</label>
-                                    <input type="text" ng-model="pinCode" placeholder="" class="focus" value="" id="postal_code" name="postal_code">
+                                    <input type="text" ng-model="pinCode" pattern="^\d{5}(?:[-\s]\d{4})?$" placeholder="" class="focus" value="" id="postal_code" name="postal_code">
                                 </div>
 
                             </div>
@@ -705,7 +705,7 @@
 
                                     </div>
                                 </div>
-                            <div ng-if="locationIncomplete" class="alert alert-danger">Please Enter ZipCode </div>
+                            <div ng-if="locationIncomplete" class="alert alert-danger">Please Enter Valid ZipCode </div>
                 </div></div>
                 </div>
             </div>

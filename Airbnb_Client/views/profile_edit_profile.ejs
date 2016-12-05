@@ -242,8 +242,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.zip">
-                                        <p style="color:red" ng-show="pin_invalid">Zip Code is Required</p>
+                                        <input id="user_live"  size="30" pattern="^\d{5}(?:[-\s]\d{4})?$" class="focus" name="live" type="text" ng-model="user.zip">
+                                        <p style="color:red" ng-show="pin_invalid">Please Enter Valid Zipcode</p>
                                     </div>
                                 </div>
 
