@@ -163,12 +163,12 @@
                                                     <table class="table table-striped">
                                                         <thead>
                                                         <tr>
-                                                            <th>
-                                                                <a href="#" ng-click="sortName = 'firstName'; sortReverse = !sortReverse">Id
-                                                                    <span class="fa fa-caret-down" ng-show="!sortReverse"></span>
-                                                                    <span class="fa fa-caret-up" ng-show="sortReverse"></span>
-                                                                </a>
-                                                            </th>
+                                                            <!--<th>-->
+                                                                <!--<a href="#" ng-click="sortName = 'firstName'; sortReverse = !sortReverse">Id-->
+                                                                    <!--<span class="fa fa-caret-down" ng-show="!sortReverse"></span>-->
+                                                                    <!--<span class="fa fa-caret-up" ng-show="sortReverse"></span>-->
+                                                                <!--</a>-->
+                                                            <!--</th>-->
                                                             <th>
                                                                 <a href="#" ng-click="sortName = 'lastName'; sortReverse = !sortReverse">Name
                                                                     <span class="fa fa-caret-down" ng-show="!sortReverse"></span>
@@ -197,7 +197,7 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr ng-repeat="x in unapprovedhost |orderBy:sortName:sortReverse|filter: searchUserTerm">
-                                                            <td ng-bind="x._id"></td>
+                                                            <!--<td ng-bind="x._id"></td>-->
                                                             <td>{{x.firstName}} {{x.lastName}}</td>
                                                             <td ng-bind="x.city"></td>
                                                             <td ng-bind="x.state"></td>

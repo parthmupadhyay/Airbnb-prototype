@@ -209,6 +209,7 @@ exports.uploadProfileImage = function (req, res) {
                     } else {
                         console.log("After uploading image client");
                         console.log(user);
+                        req.session.profileImage = fileName;
                         res.redirect('/getUserPhotoPage')
                     }
                 });

@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://airbnb:airbnb@ds035796.mlab.com:35796/airbnb17';
+var dbURI = 'mongodb://localhost/airbnb17';
 
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
