@@ -1,6 +1,3 @@
-/**
- * Created by Divya Patel on 11/6/2016.
- */
 var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://airbnb:airbnb@ds035796.mlab.com:35796/airbnb17';
