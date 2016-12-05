@@ -394,7 +394,7 @@
                                 <td>
                                     <div class="media va-container">
                                         <a class="pull-left media-photo media-round" href="">
-                                            <img width="50" height="50" title="John" src="../images/profile_pic_1462128938.jpg" alt="John">
+                                            <img width="50" height="50" title="{{reservation.userId.profileImage}}" src="../images/user/{{reservation.userId.profileImage}}" alt="{{reservation.userId.profileImage}}">
                                         </a>      <div class="va-top">
                                             <a class="text-normal" href="" ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
                                             <br>
@@ -425,9 +425,17 @@
                                                     <option>5</option>
                                                 </select>
 
+                                                <div class="add-photos-button">
+                                                    <input type="file"  fileread="photosList" name="photos[]" multiple="true" id="upload_photos" accept="image/*">
+                                                    </br>
+                                                    <p ng-hide="photoP" ng-repeat="src in photosList">
+                                                        <img src='{{src}}' height="40%" width="40%">
+                                                    </p>&nbsp;
+                                                    </br>
 
+                                                </div>
 
-                                                <button ng-click="submitReview(review[reservation._id], reservation.userId._id, rating)" type="button" class="btn btn-primary btn">
+                                                <button ng-click="submitReview(review[reservation._id], reservation.userId._id, rating,photosList)" type="button" class="btn btn-primary btn">
                                                     Submit Review
                                                 </button>
                                             </div>

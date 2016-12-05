@@ -108,13 +108,22 @@
                                             <a ng-show="trip.isAccepted == 'Accepted'" ng-click="toggleReview()" href="#">Write Review</a>
                                             <div ng-show="writeReview"><textarea ng-model="review[trip._id]" rows="4" cols="10"></textarea>
                                                 <select ng-model="rating">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
                                                 </select>
-                                                <button ng-click="submitReview(review[trip._id], trip.hostId._id, rating)" type="button" class="btn btn-primary btn">
+                                                <div class="add-photos-button">
+                                                    <input type="file"  fileread="photosList" name="photos[]" multiple="true" id="upload_photos" accept="image/*">
+                                                    </br>
+                                                    <p ng-hide="photoP" ng-repeat="src in photosList">
+                                                        <img src='{{src}}' height="40%" width="40%">
+                                                    </p>&nbsp;
+                                                    </br>
+
+                                                </div>
+                                                <button ng-click="submitReview(review[trip._id], trip.hostId._id, rating,photosList)" type="button" class="btn btn-primary btn">
                                                     Submit Review
                                                 </button>
                                             </div>
@@ -157,20 +166,17 @@
 
 <div id="fb-root"></div>
 
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
@@ -254,12 +260,13 @@
         });
     });
 </script>
+
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/localhost:3000";
-    $.datepicker.setDefaults($.datepicker.regional["en"])
+    var APP_URL = "";
+    var USER_ID = 10001
+    $.datepicker.setDefaults($.datepicker.regional[ "en" ])
 </script>
-
 
 <script type="application/javascript" src="js/common.js"></script>
 
@@ -270,5 +277,8 @@
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
 </div>
+
+
+
 </body>
 </html>
