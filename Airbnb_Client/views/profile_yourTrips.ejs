@@ -88,7 +88,7 @@
                                 <th>Options</th>
                             </tr>
 
-                            <tr ng-repeat="trip in trips">
+                            <tr ng-repeat="trip in trips" ng-if="!trip.isDeleted">
                                 <td class="status">
         <span class="label label-orange label-success">
           {{trip.isAccepted}}
@@ -133,6 +133,9 @@
                                         </li>
                                         <li ng-show="trip.isAccepted == 'Accepted'" class="row-space-1">
                                             <a class="button-steel" href="/receipt/{{trip._id}}">View receipt</a>
+                                        </li>
+                                        <li class="row-space-1">
+                                            <a class="button-steel" href="#" ng-click="deleteTrip(trip.tripId)" >Delete Trip</a>
                                         </li>
                                     </ul>
                                 </td>

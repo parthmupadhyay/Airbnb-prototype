@@ -155,3 +155,31 @@ exports.getItinerary = function (msg, callback) {
 
 
 };
+
+exports.deleteTrip=function(msg,callback)
+{
+    console.log("in delete trip");
+    var res={};
+    Trip.findOneAndUpdate({ tripId: msg.tripId }, { isDeleted: true }, function(err, user)
+    {
+        if (err)
+        {
+            console.log(err);
+            callback(err,null);
+        }
+        else
+        {
+            if(user)
+            {
+                res.statusCode=200;
+                callback(null,{res});
+            }
+            else
+            {
+                res.statusCode=401;
+                callback(null,{res});
+            }
+        }
+
+    });
+}

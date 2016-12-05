@@ -29,7 +29,10 @@ exports.loadDetailPg = function (req, res) {
         "profileImage":req.session.profileImage
     };
 
-    res.render('detail',user_data);
+    if(req.session.isLoggedIn)
+        res.render('detail',user_data);
+    else
+        res.render('homewithoutlogin',user_data);
 };
 
 

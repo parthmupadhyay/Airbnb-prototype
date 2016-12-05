@@ -664,4 +664,17 @@ cnn.on('ready', function () {
             });
         });
     });
+
+    cnn.queue('deleteTrip_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            trips.deleteTrip(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
 });

@@ -1346,3 +1346,105 @@
 {"user":"Karan","property_clicked":"5845c1daa02f56360c3f0739","property_type":"Apartment","property_lang":"52.45523559999999","property_long":"5.692692999999963","level":"info","message":"Karan clicked on 5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:34:34.179Z"}
 {"user":"Karan","property_clicked":"5845c1daa02f56360c3f0739","property_type":"Apartment","property_lang":"52.45523559999999","property_long":"5.692692999999963","level":"info","message":"Karan clicked on 5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:35:08.381Z"}
 {"user":"Karan","property_clicked":"5845c1daa02f56360c3f0739","property_type":"Apartment","property_lang":"52.45523559999999","property_long":"5.692692999999963","level":"info","message":"Karan clicked on 5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:35:30.296Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T20:39:43.911Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey logged in","timestamp":"2016-12-05T20:40:00.063Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T20:40:00.381Z"}
+{"user":"Shrey","property_clicked":"5845c1daa02f56360c3f0739","property_type":"Apartment","property_lang":"52.45523559999999","property_long":"5.692692999999963","level":"info","message":"Shrey clicked on 5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:40:24.936Z"}
+{"user":"Shrey","property_bid":"5845c1daa02f56360c3f0739","bid_price":235,"level":"info","message":"Shrey bidded for property5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:40:34.727Z"}
+{"user":"Shrey","property_clicked":"5845c1daa02f56360c3f0739","property_type":"Apartment","property_lang":"52.45523559999999","property_long":"5.692692999999963","level":"info","message":"Shrey clicked on 5845c1daa02f56360c3f0739","timestamp":"2016-12-05T20:40:37.637Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T20:40:46.453Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T20:40:48.777Z"}
+{"date":"Mon Dec 05 2016 12:47:23 GMT-0800 (Pacific Standard Time)","process":{"pid":10568,"uid":null,"gid":null,"cwd":"G:\\git\\Airbnb17-new\\Airbnb_Client\\bin","execPath":"C:\\Program Files (x86)\\nodejs\\node.exe","version":"v6.7.0","argv":["C:\\Program Files (x86)\\nodejs\\node.exe","G:\\git\\Airbnb17-new\\Airbnb_Client\\bin\\www"],"memoryUsage":{"rss":44793856,"heapTotal":34668544,"heapUsed":22927164}},"os":{"loadavg":[0,0,0],"uptime":262958.8682617},"trace":[{"column":4,"file":"G:\\git\\Airbnb17-new\\Airbnb_Client\\app.js","function":"","line":29,"method":null,"native":false},{"column":32,"file":"module.js","function":"Module._compile","line":556,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":565,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":473,"method":"load","native":false},{"column":12,"file":"module.js","function":"tryModuleLoad","line":432,"method":null,"native":false},{"column":3,"file":"module.js","function":"Function.Module._load","line":424,"method":"Module._load","native":false},{"column":17,"file":"module.js","function":"Module.require","line":483,"method":"require","native":false},{"column":19,"file":"internal/module.js","function":"require","line":20,"method":null,"native":false},{"column":11,"file":"G:\\git\\Airbnb17-new\\Airbnb_Client\\bin\\www","function":"","line":7,"method":null,"native":false},{"column":32,"file":"module.js","function":"Module._compile","line":556,"method":"_compile","native":false},{"column":10,"file":"module.js","function":"Object.Module._extensions..js","line":565,"method":"Module._extensions..js","native":false},{"column":32,"file":"module.js","function":"Module.load","line":473,"method":"load","native":false},{"column":12,"file":"module.js","function":"tryModuleLoad","line":432,"method":null,"native":false},{"column":3,"file":"module.js","function":"Function.Module._load","line":424,"method":"Module._load","native":false},{"column":10,"file":"module.js","function":"Module.runMain","line":590,"method":"runMain","native":false},{"column":7,"file":"bootstrap_node.js","function":"run","line":394,"method":null,"native":false}],"stack":["TypeError: Cannot read property 'get' of undefined","    at Object.<anonymous> (G:\\git\\Airbnb17-new\\Airbnb_Client\\app.js:29:4)","    at Module._compile (module.js:556:32)","    at Object.Module._extensions..js (module.js:565:10)","    at Module.load (module.js:473:32)","    at tryModuleLoad (module.js:432:12)","    at Function.Module._load (module.js:424:3)","    at Module.require (module.js:483:17)","    at require (internal/module.js:20:19)","    at Object.<anonymous> (G:\\git\\Airbnb17-new\\Airbnb_Client\\bin\\www:7:11)","    at Module._compile (module.js:556:32)","    at Object.Module._extensions..js (module.js:565:10)","    at Module.load (module.js:473:32)","    at tryModuleLoad (module.js:432:12)","    at Function.Module._load (module.js:424:3)","    at Module.runMain (module.js:590:10)","    at run (bootstrap_node.js:394:7)"],"level":"error","message":"uncaughtException: Cannot read property 'get' of undefined","timestamp":"2016-12-05T20:47:23.982Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T20:48:26.242Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T20:48:30.156Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T20:51:11.479Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T20:51:13.187Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray logged in","timestamp":"2016-12-05T20:51:22.142Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T20:51:22.379Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T20:51:24.087Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:06:19.052Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:12:49.004Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:12:51.807Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T21:13:35.657Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T21:13:35.906Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T21:13:37.993Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:13:40.960Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray logged in","timestamp":"2016-12-05T21:13:51.294Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:13:51.524Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:27:16.422Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:27:20.463Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:55:25.527Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:55:28.878Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-05T21:55:29.666Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-05T21:55:31.723Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:55:36.473Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:56:23.135Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan logged in","timestamp":"2016-12-05T21:56:59.787Z"}
+{"user":"Karan","url_clicked":"/","level":"info","message":"Karan clicked on home","timestamp":"2016-12-05T21:57:00.050Z"}
+{"user":"Karan","url_clicked":"/yourTrips","level":"info","message":"Karan clicked on your trips","timestamp":"2016-12-05T21:57:03.948Z"}
+{"user":"Karan","url_clicked":"/yourTrips","level":"info","message":"Karan clicked on your trips","timestamp":"2016-12-05T21:57:05.779Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:57:08.594Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey logged in","timestamp":"2016-12-05T21:57:20.944Z"}
+{"user":"Shrey","url_clicked":"/","level":"info","message":"Shrey clicked on home","timestamp":"2016-12-05T21:57:21.211Z"}
+{"user":"Shrey","url_clicked":"/yourTrips","level":"info","message":"Shrey clicked on your trips","timestamp":"2016-12-05T21:57:23.793Z"}
+{"user":"Shrey","url_clicked":"/yourTrips","level":"info","message":"Shrey clicked on your trips","timestamp":"2016-12-05T21:57:25.456Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:57:28.982Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray logged in","timestamp":"2016-12-05T21:57:43.635Z"}
+{"user":"Maitray","url_clicked":"/","level":"info","message":"Maitray clicked on home","timestamp":"2016-12-05T21:57:43.869Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-05T21:57:47.190Z"}
+{"user":"Maitray","url_clicked":"/yourTrips","level":"info","message":"Maitray clicked on your trips","timestamp":"2016-12-05T21:57:48.937Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T21:57:52.801Z"}
+{"user":"Sarah","url_clicked":"/","level":"info","message":"Sarah logged in","timestamp":"2016-12-05T22:00:54.278Z"}
+{"user":"Sarah","url_clicked":"/","level":"info","message":"Sarah clicked on home","timestamp":"2016-12-05T22:00:54.552Z"}
+{"user":"Sarah","url_clicked":"/yourTrips","level":"info","message":"Sarah clicked on your trips","timestamp":"2016-12-05T22:00:59.490Z"}
+{"user":"Sarah","url_clicked":"/yourTrips","level":"info","message":"Sarah clicked on your trips","timestamp":"2016-12-05T22:01:01.574Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T22:01:08.112Z"}
+{"user":"Shelby","url_clicked":"/","level":"info","message":"Shelby logged in","timestamp":"2016-12-05T22:01:26.846Z"}
+{"user":"Shelby","url_clicked":"/","level":"info","message":"Shelby clicked on home","timestamp":"2016-12-05T22:01:27.095Z"}
+{"user":"Shelby","url_clicked":"/yourTrips","level":"info","message":"Shelby clicked on your trips","timestamp":"2016-12-05T22:01:32.038Z"}
+{"user":"Shelby","url_clicked":"/yourTrips","level":"info","message":"Shelby clicked on your trips","timestamp":"2016-12-05T22:01:33.680Z"}
+{"user":"Shelby","url_clicked":"/yourListings","level":"info","message":"Shelby clicked on user listing","timestamp":"2016-12-05T22:01:37.506Z"}
+{"user":"Shelby","url_clicked":"/yourListings","level":"info","message":"Shelby clicked on user listing","timestamp":"2016-12-05T22:01:39.620Z"}
+{"url_clicked":"/","level":"info","message":"undefined clicked on home","timestamp":"2016-12-05T22:01:52.542Z"}
+{"user":"Salmaan","url_clicked":"/","level":"info","message":"Salmaan logged in","timestamp":"2016-12-05T22:02:22.199Z"}
+{"user":"Salmaan","url_clicked":"/","level":"info","message":"Salmaan clicked on home","timestamp":"2016-12-05T22:02:22.486Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:02:26.422Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:02:28.211Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:14:56.597Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:15:00.975Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:16:17.803Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:16:20.217Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:17:22.738Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:17:33.400Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:20:02.672Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:20:04.874Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:30:02.572Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:30:05.854Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:31:25.051Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:31:28.052Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:33:32.829Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:33:35.460Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:33:50.698Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:33:53.485Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:34:29.176Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:34:32.987Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:34:49.317Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:34:52.690Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:34:57.712Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:35:00.451Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:16.055Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:22.054Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:27.841Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:33.683Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:37.927Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:36:44.805Z"}
+{"user":"Salmaan","url_clicked":"/userProfile","level":"info","message":"Salmaan clicked on profile","timestamp":"2016-12-05T22:37:05.572Z"}
+{"user":"Salmaan","url_clicked":"/userProfile","level":"info","message":"Salmaan clicked on profile","timestamp":"2016-12-05T22:37:07.527Z"}
+{"user":"Salmaan","url_clicked":"/userProfile","level":"info","message":"Salmaan clicked on profile","timestamp":"2016-12-05T22:38:36.082Z"}
+{"user":"Salmaan","url_clicked":"/userProfile","level":"info","message":"Salmaan clicked on profile","timestamp":"2016-12-05T22:38:36.969Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:38:38.613Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:38:40.401Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:38:51.054Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:38:53.125Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:39:12.137Z"}
+{"user":"Salmaan","url_clicked":"/yourTrips","level":"info","message":"Salmaan clicked on your trips","timestamp":"2016-12-05T22:39:16.125Z"}

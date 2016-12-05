@@ -12,7 +12,8 @@ var tripSchema = new Schema({
     checkOut: {type: Number},
     noOfGuests: {type: Number},
     isAccepted: {type: Boolean},
-    createdDate: {type: Number}
+    createdDate: {type: Number},
+    isDeleted:{type: Boolean}
 
 });
 

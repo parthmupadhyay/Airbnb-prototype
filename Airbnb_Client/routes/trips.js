@@ -102,3 +102,33 @@ exports.loadItinerary = function (request, response) {
         }
     });
 };
+
+exports.deleteTrip=function(request,response)
+{
+    var msg_payload=
+    {
+        "tripId":request.param("tripId")
+    }
+    mq_client.make_request('deleteTrip_queue', msg_payload, function (err, result) {
+        if (!err)
+        {
+            if(result.statusCode=200)
+            {
+                console.log(result);
+                response.send(result);
+
+            }
+            else
+            {
+                response.send({statusCode:401});
+            }
+        }
+        else
+        {
+            console.log(err);
+            response.status(400);
+            response.end();
+        }
+    });
+
+}

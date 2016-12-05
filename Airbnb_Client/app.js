@@ -26,7 +26,7 @@ var cronBid = require('./routes/cronBid');
 var dynamicPricing=require('./routes/dynamicPricingCron');
 var winstonLogger=require('./routes/usertracking');
 var biddingLogger=require('./routes/biddingLogger');
-app.get('/dashboard',render.dashboard);
+
 
 
 
@@ -54,7 +54,7 @@ app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({limit: "50mb"}, {extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.get('/dashboard',render.dashboard);
 app.post('/signin', signin.authenticateUser);
 app.get('/', render.renderHomePage);
 app.get('/login', signin.loginpg);
@@ -95,6 +95,7 @@ app.get('/getActiveListings', listings.getActiveListings);
 app.get('/getActiveListings/:userId', listings.getActiveListingsFromId);
 app.get('/getReservations', listings.getReservations);
 app.post('/acceptTrip', trips.acceptTrip);
+app.post('/deleteTrip',trips.deleteTrip);
 
 app.get('/profile/*', render.userProfile);
 app.get('/getUserProfile/:userId', users.getUserProfile);

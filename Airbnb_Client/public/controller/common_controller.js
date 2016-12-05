@@ -1511,6 +1511,22 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,$window) {
         });
 
 
+    $scope.deleteTrip=function(tripId)
+    {
+        $http({
+            method: 'POST',
+            url: '/deleteTrip',
+            data: {"tripId": tripId}
+        })
+            .success(function (data) {
+               console.log(data);
+                if(data.statusCode=200)
+                    $window.location.assign('/yourTrips');
+                if(data.statusCode=401)
+                    console.log("failed");
+            });
+    }
+
     $scope.viewItinerary = function (tripId) {
 
         $http({
