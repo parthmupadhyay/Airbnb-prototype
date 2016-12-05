@@ -134,6 +134,7 @@ app.get('/cardDetails', account_management.cardDetails);
 
 
 app.get('/mongooseProperty', property.mongooseProperty);
+app.get('/dashboard',render.dashboard);
 
 
 app.post('/updateBasePrice', bid.updateBasePrice);

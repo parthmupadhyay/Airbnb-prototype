@@ -1,6 +1,3 @@
-/**
- * Created by karan on 10/03/2016.
- */
 var mysql = require('mysql');
 var ejs = require('ejs');
 var res = require("ejs");

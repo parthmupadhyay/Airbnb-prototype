@@ -2,6 +2,7 @@
  * Created by Parth on 27-11-2016.
  */
 var logger=require('./usertracking');
+var mq_client = require('../rpc/client');
 
 function getUserData(request)
 {
@@ -175,6 +176,26 @@ exports.pageNotFound = function(req, res){
 };
 
 exports.dashboard = function(req, res){
-    var data = getUserData(req);
-    res.render('dashboard', data);
+
+    var msg_payload = {"userId": req.session.userId};
+    var propList = [];
+
+    mq_client.make_request('getActiveListings_queue', msg_payload, function(err, properties){
+
+        var temp = "+";
+        console.log(properties.listed);
+        var data = getUserData(req);
+        for(e in properties.listed){
+            temp = '"' + (String(properties.listed[e]._id)) + '"';
+            propList.push(temp);
+        }
+        console.log(propList.join());
+        data.properties = propList.join();
+        console.log(data);
+        res.render('dashboard', data);
+
+    });
+
+
 };
+

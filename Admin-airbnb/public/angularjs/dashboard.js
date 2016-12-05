@@ -27,8 +27,8 @@ dashboard.controller('dashboard', function($scope, $http){
                     title: {
                         text:'Properties'
                     },
-                   categories: ["33 South", "101 San Fernando", "Pascio Plaza", "355 Serrano Drive", "Casa Baloni", "The Weekend", "Holiday Inn", "Radisson Blu", "Legacy Fountain"]
-                    // categories: [result.propertyName[0], result.propertyName[1], result.propertyName[2], result.propertyName[3], result.propertyName[4], result.propertyName[5], result.propertyName[6], result.propertyName[7], result.propertyName[8], result.propertyName[9]]
+                   //categories: ["33 South", "101 San Fernando", "Pascio Plaza", "355 Serrano Drive", "Casa Baloni", "The Weekend", "Holiday Inn", "Radisson Blu", "Legacy Fountain"]
+                     categories: [result.propertyName[0], result.propertyName[1], result.propertyName[2], result.propertyName[3], result.propertyName[4], result.propertyName[5], result.propertyName[6], result.propertyName[7], result.propertyName[8], result.propertyName[9]]
                 },
 
                 series: [{
@@ -103,14 +103,14 @@ dashboard.controller('dashboard', function($scope, $http){
                         title: {
                             text:'Cities'
                         },
-                        categories: ["San Jose", "Los Angeles", "San Diego", "Ann Arbor", "Chicago", "Cinncinati", "New York", "Boston", "Seatle"]
+                        categories: [result[0]._id , result[1]._id , result[2]._id, result[3]._id, result[4]._id, result[5]._id, result[6]._id, result[7]._id, result[8]._id, result[9]._id]
                         //, result[1]._id , result[2]._id, result[3]._id, result[4]._id, result[5]._id, result[6]._id, result[7]._id, result[8]._id, result[9]._id
                     },
 
                     series: [{
                         type: 'column',
                         colorByPoint: true,
-                        data: [23245, 34234, 34653, 75465, 98432, 23432, 21123,65463, 23453],
+                        data: [result[0].revenue, result[1].revenue , result[2].revenue,result[3].revenue  , result[4].revenue, result[5].revenue, result[6].revenue, result[7].revenue, result[8].revenue, result[9].revenue],
                         showInLegend: false
                      // , result[1].revenue , result[2].revenue,result[3].revenue  , result[4].revenue, result[5].revenue, result[6].revenue, result[7].revenue, result[8].revenue, result[9].revenue
                     }]
@@ -147,15 +147,15 @@ console.log($scope.topTenHost);
                     title: {
                         text:'Hosts'
                     },
-                    //categories: [result.hostName[0], result.hostName[1], result.hostName[2], result.hostName[3], result.hostName[4], result.hostName[5], result.hostName[6], result.hostName[7], result.hostName[8], result.hostName[9]]
-                    categories: ["Adrian Brady", "Juan Pinzon", "Rakesh Shah", "Xiaoyu Zhou", "Chris Pratt", "Juliann Moore", "Steve Austin", "Salmaan Pelhari", "Stacy Roberts"]
+                    categories: [result.hostName[0], result.hostName[1], result.hostName[2], result.hostName[3], result.hostName[4], result.hostName[5], result.hostName[6], result.hostName[7], result.hostName[8], result.hostName[9]]
+                    //categories: ["Adrian Brady", "Juan Pinzon", "Rakesh Shah", "Xiaoyu Zhou", "Chris Pratt", "Juliann Moore", "Steve Austin", "Salmaan Pelhari", "Stacy Roberts"]
                 },
 
                 series: [{
                     type: 'column',
                     colorByPoint: true,
-                  //  data: [result.revenue[0], result.revenue[1], result.revenue[2], result.revenue[3], result.revenue[4], result.revenue[5], result.revenue[6], result.revenue[7], result.revenue[8], result.revenue[9]],
-                    data: [2334, 5434, 2123, 1232, 10394, 3942, 5678, 11234, 4530],
+                    data: [result.revenue[0], result.revenue[1], result.revenue[2], result.revenue[3], result.revenue[4], result.revenue[5], result.revenue[6], result.revenue[7], result.revenue[8], result.revenue[9]],
+                  //  data: [2334, 5434, 2123, 1232, 10394, 3942, 5678, 11234, 4530],
                     showInLegend: false
                 }]
 
