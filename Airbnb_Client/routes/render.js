@@ -173,3 +173,8 @@ exports.pageNotFound = function(req, res){
     var data = getUserData(req);
     res.render('404', data);
 };
+
+exports.dashboard = function(req, res){
+    var data = getUserData(req);
+    res.render('dashboard', data);
+};

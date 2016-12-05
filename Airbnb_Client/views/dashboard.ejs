@@ -11,7 +11,7 @@
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
-<!--
+    <!--
 
     [if IE 8]>
     <link media="all" type="text/css" rel="stylesheet" href="/css/common_ie8.css">
@@ -28,7 +28,7 @@
     <link media="all" type="text/css" rel="stylesheet" href="css/dynamic.css">
 
     <!--<![endif]-->
-<!--
+    <!--
     [if lt IE 9]>
     <link media="all" type="text/css" rel="stylesheet" href="css/airglyphs-ie8.css">
 
@@ -130,26 +130,21 @@
                     <div class="media media-photo-block
              dashboard-profile-photo panel-image ">
                         <a href="#" title="View Profile">
-                            <img src="#" class="img-responsive" width="190" height="190" title="Test" alt="Test">
+                            <img src="/images/user/<%=profileImage%>" class="img-responsive" width="190" height="190" title="Test" alt="Test">
                         </a>
 
-                        <div class="upload-profile-photo-cta btn btn-contrast btn-block text-wrap">
-                            <a href="#" class="link-reset">
-                                <i class="icon icon-camera"></i>
-                                Add Profile Photo
-                            </a>
-                        </div>
+
                     </div>
                     <div class="panel-body">
                         <h2 class="text-center">
-                            Test
+                            <%= firstname%>
                         </h2>
                         <ul class="list-unstyled text-center">
                             <li>
-                                <a href="#">View Profile</a>
+                                <a href="/profile/<%= userSSN%>">View Profile</a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-primary btn-block text-wrap space-top-1" id="edit-profile">Complete Profile</a>
+                                <a href="/editProfile" class="btn btn-primary btn-block text-wrap space-top-1" id="edit-profile">Edit Profile</a>
                             </li>
                         </ul>
                     </div>
@@ -183,27 +178,7 @@
             </div>
 
             <div class="col-md-9">
-
-                <div class="panel space-4">
-                    <div class="panel-header">
-                        Welcome to Airbnb, Test!
-                    </div>
-                    <div class="panel-body">
-                        <p>
-                            Check your messages, view upcoming trip information, and find travel inspiration all from your dashboard.  Before booking your first stay, make sure to:             </p>
-
-                        <ul class="list-unstyled">
-                            <li class="space-2">
-                                <strong><a href="#">Complete Your Profile</a></strong>
-                                <div>Upload a photo and write a short bio to help hosts get to know you before inviting you into their home.</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-
-
-
+                <iframe src="http://localhost:5601/app/kibana#/dashboard/AirBnb?embed=true&_g=(refreshInterval:('$$hashKey':'object:501',display:'5+seconds',pause:!f,section:1,value:5000),time:(from:now-1h,mode:quick,to:now))&_a=(filters:!(),options:(darkTheme:!t),panels:!((col:1,id:Total-Hits,panelIndex:2,row:1,size_x:6,size_y:3,type:visualization),(col:7,id:Users,panelIndex:3,row:1,size_x:2,size_y:3,type:visualization),(col:10,id:Properties-Viewed,panelIndex:1,row:1,size_x:3,size_y:3,type:visualization),(col:1,id:Hits-Per-Day,panelIndex:10,row:4,size_x:7,size_y:4,type:visualization),(col:9,id:Property-type-favoured,panelIndex:8,row:4,size_x:3,size_y:4,type:visualization),(col:1,id:Property-Hits-Bar,panelIndex:5,row:8,size_x:8,size_y:6,type:visualization),(col:9,id:Property-Hits-Table,panelIndex:4,row:8,size_x:3,size_y:6,type:visualization),(col:1,id:URL-Hits-Table,panelIndex:6,row:14,size_x:3,size_y:5,type:visualization),(col:4,id:URL-hits-Bar,panelIndex:7,row:14,size_x:7,size_y:5,type:visualization),(col:1,id:Bid-Tracking,panelIndex:9,row:19,size_x:11,size_y:6,type:visualization),(col:1,id:Property-Rating,panelIndex:11,row:25,size_x:4,size_y:5,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:'propertyId+%3D+%225845c43677543a58a7b76fc1%22')),title:AirBnb,uiState:(P-4:(vis:(params:(sort:(columnIndex:!n,direction:!n)))),P-6:(vis:(params:(sort:(columnIndex:!n,direction:!n))))))" height="600" width="800"></iframe>
             </div>
         </div>
     </div>

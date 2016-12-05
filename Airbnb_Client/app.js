@@ -26,7 +26,7 @@ var cronBid = require('./routes/cronBid');
 var dynamicPricing=require('./routes/dynamicPricingCron');
 var winstonLogger=require('./routes/usertracking');
 var biddingLogger=require('./routes/biddingLogger');
-
+app.get('/dashboard',render.dashboard);
 
 
 
